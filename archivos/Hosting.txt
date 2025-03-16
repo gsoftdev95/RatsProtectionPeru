@@ -1,0 +1,19 @@
+FILEZILA
+185.173.111.200
+u213740088
+Ratsperu2024
+
+IP sitio web
+185.173.111.200
+**************************************
+nombreBD
+ratsprotection
+u213740088_ratsprotection
+-------------
+nombre usuario
+gsoftStudio
+u213740088_gsoftStudio
+----------------
+contraseña
+ratsDesarrollador95
+

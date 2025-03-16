@@ -1,0 +1,11 @@
+paleta de colores
+
+#787878
+#b5b5b5
+
+
+
+
+.cajaprotecciontext a{
+    color: black;
+}

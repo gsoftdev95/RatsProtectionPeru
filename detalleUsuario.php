@@ -1,0 +1,58 @@
+<?php
+    require_once('controladores/funciones.php');
+    require_once('helpers/dd.php');
+    controlIngreso();
+    require_once('partials/conexionBD.php');
+    //controll de accesso por roles
+    require_once('controladores/controlAcceso.php');
+    
+    $id=$_GET['id'];
+    
+    $usuario = detalleUsuario($bd, $id, 'usuariorats');
+    //dd($usuario);
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <?php include_once('./partials/head.php') ?>
+</head>
+<body>
+    <header>
+        <?php include_once('./partials/navBar.php')?>
+    </header>
+    
+    <div class="container-fluid">        
+        <section class="col-12 container-fluid m-0 p-0">
+            <h2 class="bg-primary-subtle text-primary-emphasis text-center py-5">Datos del usuario</h2>            
+        </section>
+        <section class="row container-fluid m-0 p-0"  >            
+            <div><a href="administrarUsuario.php" class="btn btn-secondary rounded-0 m-2 w-5">Volver</a></div> 
+            <article class="col-4 offset-2 pt-4 w-50">
+                <h4>ID: <?= $usuario['id'];?> </h4> 
+                <br>           
+                <h4>Nombre: <?= $usuario['nombre'];?></h4>    
+                <br>        
+                <h4>Apellido: <?= $usuario['apellidos'];?></h4>
+                <br>            
+                <h4>Email: <?= $usuario['correo'];?></h4>
+                <br>
+                <h4>Perfil: <?= $usuario['perfil'];?></h4>
+            </article>
+            <div><a href="administrarUsuario.php" class="btn btn-secondary rounded-0 m-2 w-5">Volver</a></div> 
+        </section>
+        
+             
+    </div>
+
+    <footer>
+        <?php include_once('./partials/footer.php')?>
+    </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+</body>
+</html>    
+   

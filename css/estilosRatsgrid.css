@@ -1,0 +1,1904 @@
+/*inicializando paginaweb*/
+
+*{
+    margin:0px;
+    padding: 0px;
+    box-sizing: border-box;
+    align-items: center; 
+}
+
+body{  
+    margin: auto;
+}
+
+/* HEADER HEADER HEADER*/
+header{
+    top: 0px;
+    width: 100%;
+}
+.navwelcome{
+    display: block;  
+    display: flex;
+    justify-content: center;
+    height: auto;
+    line-height: 30px;
+}
+.welcometext{    
+    width: auto;
+    align-items: center;
+    text-align: center;
+    font-size: 1rem;
+    color: black;
+    margin: 0px 10px;
+
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.li_enc1{
+    border-left: 1px solid #8e8e8e;
+    font-size: 0.8rem;
+}
+.enc1Admin{
+    margin-right: 5px;
+    align-items: center;
+    text-align: center;    
+    color: black;    
+    width: 120px;
+    text-align: center;
+
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+#logymen{    
+    display: flex;    
+    background-color:white; 
+    height: 100px;
+    align-items: center;
+}
+.logorats{
+    margin: 0px 20px;
+}
+.logorats img{
+    width: auto;
+    height: 60px;
+}
+
+
+
+.textmenu{
+    margin-left: 10px;
+    height: 100px;
+    padding-top: 30px;
+    background-color: white;
+}
+.textmenu::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;                /* Comienza desde el centro */
+    width: 0;                 /* Ancho inicial del borde */
+    height: 2px;              /* Alto del borde */
+    background-color: black;  /* Color del borde */
+    transition: all 0.4s ease; /* Transición para animación suave */
+}
+.textmenu:hover::after {
+    width: 100%;              /* Ancho final cuando se hace hover */
+    left: 0;                  /* Expandir hacia los lados */
+}
+
+.menus2{
+    position: absolute;
+    display: none;
+    width: 98px;
+    background-color: white;
+    list-style: none;
+    top:99px;
+}
+.textmenu:hover .menus2{
+    display: block;
+    overflow: hidden;
+    border-radius: 0px;
+    
+    transition: color 1 ease-out;
+}
+.menus2>li :hover{
+    background-color: #f2f2f2;
+    font-weight: bolder;
+}
+.log{
+    width: auto;
+    padding: 0px 5px;
+    border-left: 1px solid #8e8e8e;
+}
+.logout{
+    width: 110px;    
+    padding: 0px 0px 0px 7px;
+}
+
+.loginIco{
+    margin: 0px 10px 0px 0px;
+    padding: 0px 0px 0px 7px;
+}
+.icon-user:before {
+    content: "\e971";
+    list-style: none;
+    font-size: 1.2rem;
+}
+
+
+
+/* CUERPO DE PAGINA */
+.icon-whatsapp:before {
+    content: "\ea93";
+}
+.ratswsp{    
+    height: 90px;
+    width: 70px;
+    position:fixed;
+    border-radius: 10px;
+    background-color: #25D366;
+    padding-top: 10px;
+    top:65%;
+    left: 0px;
+    text-align: center;
+}
+.ratswsp a{
+    text-decoration: none;
+}
+#iconratswsp{
+    height: 40px;
+    font-size: 30px;
+    color: white;
+}
+#ratswsptexto{
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+
+    font-size: 0.8rem;
+    padding: 2px;
+    font-weight: bolder;
+    color: white;
+}
+/*
+#promociones{
+    background-color: greenyellow;
+    color: rgb(172, 132, 132);
+    height: 40px;
+    line-height: 40px;
+    font-size: 20px;
+    font-weight: bolder;
+    animation: slideraPromociones 1s infinite alternate;
+
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+@keyframes slideraPromociones{
+    from{
+        font-size: 20px;
+    }
+    to{
+        font-size: 30px;
+    }
+}*/
+
+
+
+
+#cuerpoPrincipal{
+    background-color: white;
+}
+#fotocuerpo1{
+    background-image: url(../imagenes/FotoPortada.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 1100px;
+    width: 100%;
+    margin: 0px auto 10px;
+    padding-top: 850px;
+    padding-left: 20px;
+}
+
+@font-face {
+    font-family: Agency FB;
+    src: url(../Letras/AGENCYB.TTF);
+}
+#slogan1{
+    text-align: left;    
+    color: white;
+    font-size: 60px;
+    font-family: Agency FB; 
+}
+#slogan2{
+    text-align: left;    
+    color: white;
+    font-size: 25Px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#reseña1,#reseña2{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    background-color: #f2f2f2;
+    width: 100%;
+    margin: 10px auto 10px;
+}
+#contenedorReseña{
+    width:400px;
+    height: 400px;
+    margin: 40px auto;
+    padding: 10px 50px 10px 50px;    
+    display: flex;
+}
+#img1reseña1{    
+    background-image: url(../imagenes/fotoaccion1.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 470px;
+    width: 370px;
+    margin: auto;
+}
+#img2reseña1{    
+    background-image: url(../imagenes/fotoaccion2.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 470px;
+    width: 370px;
+    margin-left: 20px;
+    margin: auto;
+}
+#textReseña{
+    text-align: justify;
+    font-size: 1em;
+    align-items: center;
+    max-width: 600px; /* Ajusta el ancho a tus necesidades */
+    margin: auto;
+    line-height: 1.5;
+
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#img1reseña2{    
+    background-image: url(../imagenes/fotoaccion12.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 470px;
+    width: 370px;
+    margin: auto;
+}
+#img2reseña2{    
+    background-image: url(../imagenes/fotoaccion15.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 470px;
+    width: 370px;
+    margin-left: 20px;
+    margin: auto;
+}
+
+
+#fotocuerpo2{
+    background-image: url(../imagenes/FotoPortada2.JPG);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 1000px;
+    width: 90%;
+    margin: 50px auto 0px;
+
+    view-timeline-name: --xx;
+    view-timeline-axis: block;
+    animation-timeline: --xx;
+    animation-name: showimagtec3;
+    animation-range: entry 25% cover 40%;
+    animation-fill-mode:both;
+}
+
+@keyframes showimagtec3{
+    from{
+        opacity: 0;
+        transform: scale(0.25);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.MenuInferior{
+    display: flex;
+    justify-content: space-around;
+    margin: 200px auto 0px;
+    text-align: center;
+}
+#menuimag1{
+    background-image:linear-gradient(rgba(5, 7, 12,0.2),rgba(5, 7, 12,0.2)),url(../imagenes/MTBmodelo.jpg);
+}
+#menuimag2{
+    background-image:linear-gradient(rgba(5, 7, 12,0.2),rgba(5, 7, 12,0.2)), url(../imagenes/BmxModelo.jpg);    
+}
+#menuimag3{
+    background-image:linear-gradient(rgba(5, 7, 12,0.2),rgba(5, 7, 12,0.2)), url(../imagenes/roller_accion6.jpg);
+}
+#menuimag4{    
+    background-image:linear-gradient(rgba(5, 7, 12,0.2),rgba(5, 7, 12,0.2)), url(../imagenes/skateModelo.jpg);
+}
+#menuimag5{    
+    background-image:linear-gradient(rgba(5, 7, 12,0.2),rgba(5, 7, 12,0.2)), url(../imagenes/kids/kidModelo.jpeg);
+}
+#menuimag6{    
+    background-image:linear-gradient(rgba(5, 7, 12,0.2),rgba(5, 7, 12,0.2)), url(../imagenes/Outfit/poleras.jpeg);
+}
+
+.MenuInferior .ventana{
+    text-decoration: none;
+    transition: 1s ease-in-out;
+    width: 200px;
+    margin: 30px 0px 0px 0px;
+    overflow: hidden;
+}
+.MenuInferior .ventana :hover{
+    transform: scale(1.1);
+    transition: all .2s ease-in;
+}
+
+.menuInf{
+    width:200px;
+    height: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+.textmenuimag{
+    color: white;    
+    position: relative;
+    top: 80px;
+    font-size: 30px;
+    font-family: Agency FB; 
+}
+
+
+
+
+
+/* PIE DE PAGINA */
+footer{
+    text-align: center;
+}
+.footer1{
+    background-color: black;
+    color: white;
+    display: flex;
+    height: 200px;
+    margin-top: 40px;
+    padding-left: 50px;
+}
+.p1{
+    height: auto;
+    width:200px;
+    margin:0px 0px 0px 30px;
+    padding: 5px;
+    font-size: 1rem;   
+    font-weight: 400;
+    font-family: Agency FB;
+    background-color: black;
+}
+.footer1 a{
+    text-decoration: none;    
+    color: white;
+}
+
+
+.t1{
+    padding: 10px 0px 10px 0px;
+    margin: auto;
+    font-size: 12PX;   
+    font-weight: 300;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+#logof{
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+}
+.iconosfooter{
+    margin-left: 70px;
+    color: white;
+    display: flex;
+    width: 400px;
+    height: 50px;
+    background-color: black;
+}
+.iconosfooter div{
+    font-size: 15px;
+    background-color: gray;
+    color: black;
+    margin-left: 20px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+}
+.iconosfooter a{
+    text-decoration: none;
+}
+.iconosfooter .icon-facebook:before {
+    content: "\ea90";
+}
+.iconosfooter .icon-instagram:before {
+    content: "\ea92";
+}
+.iconosfooter .icon-whatsapp:before {
+    content: "\ea93";
+}
+.imagenfooter{
+    background-image: url(../imagenes/logo_blanco_sin_fondo300x89.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 203px;
+    height: 60px;
+    margin-right: 50px;
+    margin-bottom: 20px;
+}
+
+.iconosfooter div:hover{
+    background-color: gray;
+    color: white;
+}
+.footer-legal {
+    max-width: 100%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    margin: auto;
+    background-color: black;
+    color: white;
+}
+
+/*REGISTRO REGISTRO REGISTRO*/
+
+.login, .registro{
+    background-color: white;    
+    height: 800px;
+}
+.titlelogin{    
+    font-family: Agency FB; 
+}
+
+
+
+
+
+/*
+************************************
+************************************
+************************************
+MODELO NAVEGACION NIVEL 2
+MODELO NAVEGACION NIVEL 2
+MODELO NAVEGACION NIVEL 2
+************************************
+************************************
+************************************
+************************************
+*/
+
+.containerIMGCategory{
+    border-bottom: 1px solid #c1bfbf;
+    margin: auto;
+}
+.IMGCategoryCover{
+    width: 100%;
+    height: auto;
+    margin: 0px auto 100px;
+}
+
+.containerItemProducto{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 0.8rem;
+    width: 100%;
+    margin: 50px 0px;
+    padding-bottom: 100px;
+    border-bottom: 1px solid #c1bfbf;
+}
+
+.containerItemProducto a{
+    text-decoration: none;    
+}
+
+.cajaItemProducto {
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    margin: auto;
+    text-align: center;
+}
+.cajaItemProducto::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(5, 7, 12, 0.2), rgba(5, 7, 12, 0.2));
+    z-index: 1; /* Asegura que la capa esté encima de la imagen */
+    pointer-events: none; /* Permite que las interacciones pasen a través de la capa */
+}
+
+.cajaItemProducto a {
+    text-decoration: none;
+    color: inherit;
+    display: block;     
+}
+.img-container {
+    position: relative;
+}
+.img-default {
+    display: block;
+    transition: opacity 0.3s ease;
+    
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    height: 380px;
+    object-fit: cover;
+    display: block;
+    margin: auto;    
+
+}
+.img-hover {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen cubra el contenedor */
+    opacity: 0; /* Inicialmente oculta la imagen de hover */
+    transition: opacity 0.3s ease; /* Suaviza la transición */
+}
+.cajaItemProducto:hover .img-default {
+    opacity: 0; /* Oculta la imagen principal al hacer hover */
+}
+
+.cajaItemProducto:hover .img-hover {
+    opacity: 1; /* Muestra la imagen de hover al hacer hover */
+}
+/*.cajaItemProducto img {}*/
+
+.cajaItemProductoText {
+    position: absolute;
+    z-index: 2;
+    top: 75%;
+    left: 5%;
+    background-color: white;
+    height: auto;
+    line-height: 20px;
+    margin: 30px 0px 0px 30px;   
+    font-size: 25px;
+    font-family: Agency FB;  
+    text-align: center;
+    display: inline-block;
+    padding: 10px;
+}
+
+
+
+/*TEAM RATS TEAM RATS TEAM RATS*/
+.bodyTeamRats{
+    padding: 5px;
+    height: 900px;
+    width: 90%;
+    margin: auto;
+}
+.ContainerTeamRats{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 20px 20px;
+    height: auto;
+    margin: 50px auto;
+}
+.TeamBox{
+    width: auto;
+    height: 350px;
+    text-align: center;
+    align-items: center;
+}
+.TeamBox img{
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    margin: auto;    
+    filter: brightness(0.9);
+}
+.nameteam{
+    margin: 10px auto;
+    font-size: 30px;
+    font-family: Agency FB;
+    text-align: center;
+}
+
+
+/*EVENTOS EVENTOS EVENTOS*/
+.containerEvento{
+    margin: 40px auto 200px;
+    height: auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    row-gap: 10px;
+    column-gap: 10px;
+}
+.imagenEvento{
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 0px 0px 5px 1px gray;
+    width: 350px;
+    height: 435px;
+}
+
+
+/* QUIENES SOMOS QUIENES SOMOS*/
+
+.QuienesSomos{
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    
+    height: 500px;
+    padding-top: 100px;
+    background-color: whitesmoke;
+}
+.QuienesSomos div{
+    font-size: 30px;
+    padding-bottom: 20px;    
+    width: 400px;    
+    margin: auto;
+    font-weight: bolder;
+    padding: 20px;
+}
+.QuienesSomos article{
+    display: block;
+    width: 400px;
+    margin: auto;
+    text-align: justify;
+    padding: 20px;
+}
+
+/* VISION VISION VISION */
+
+.vision{
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    
+    height: 500px;
+    padding-top: 100px;
+    background-color: whitesmoke;
+}
+.vision div{
+    font-size: 30px;
+    padding-bottom: 20px;    
+    width: 400px;    
+    margin: auto;
+    font-weight: bolder;
+    padding: 20px;
+}
+.vision article{
+    display: block;
+    width: 400px;
+    margin: auto;
+    text-align: justify;
+    padding: 20px;
+}
+
+/* MISION MISION MISION */
+
+.Mision{
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    
+    height: 500px;
+    padding-top: 100px;
+    background-color: whitesmoke;
+}
+.Mision div{
+    font-size: 30px;
+    padding-bottom: 20px;    
+    width: 400px;    
+    margin: auto;
+    font-weight: bolder;
+    padding: 20px;
+}
+.Mision article{
+    display: block;
+    width: 400px;
+    margin: auto;
+    text-align: justify;
+    padding: 20px;
+}
+
+
+
+/*
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+MODELO NAVEGACION 3
+MODELO NAVEGACION 3
+MODELO NAVEGACION 3
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+*/
+
+.containerProducto{
+    display: flex;
+    width: 100%;
+    padding: 2px;
+    margin: 0px auto 20px ;
+    justify-content: space-around;
+    height: auto;
+    align-items:flex-start;    
+}
+.ContainerImagProducto{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 5px;
+    margin: 40px 0px 20px ;
+    text-align: left;
+    width: 1500px;
+
+}
+.ContainerImagProducto a{
+    width: 100%;
+    height: 100%;
+}
+.ContainerImagProducto img{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+.informacionProducto{
+    width: 800px;
+    padding: 0px 10px 10px 10px;    
+    margin: 40px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.informacionProductoSub{
+    border-bottom: 2px solid #c1bfbf;
+}
+#titulo{
+    text-align: left;
+    font-size: 2.3rem;
+    height: auto;        
+    font-family: Agency FB;
+}
+#categoria{    
+    font-size: 0.7rem;
+    padding: 2px;
+}
+#precio{
+    text-align: left;
+    font-size: 25px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #c1bfbf;    
+
+    font-family: Agency FB;
+}
+#talla{    
+    text-align: left;   
+    font-size: 0.7rem;
+    padding: 5px 0px 30px 0px;
+    text-align: justify;   
+
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.containerTalla{
+    display: flex;
+}
+.talla-box{    
+   background-color: #8e8e8e;
+   padding: 0px 15px;
+   margin: 1px;
+   font-size: 1rem;
+   color: black;
+   width: auto;
+   height: 2rem;
+   text-align: center;
+   line-height: 2rem;
+   
+   font-family: Agency FB;
+}
+#descripcion{
+    text-align: left;   
+    font-size: 0.7rem;
+    padding: 5px 0px 30px 0px;
+    text-align: justify;   
+
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+#especificaciones{
+    text-align: left;   
+    font-size: 0.7rem;
+    padding: 5px 0px 30px 0px;
+    text-align: justify;   
+
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.postVenta img{
+    width: 2rem;
+    height:auto;
+    margin-right:10px
+}
+
+.postVenta img{
+    width: 2.5rem;
+    height:auto;
+    margin-right:10px
+}
+        
+.postVenta ul{
+    margin: 20px 0px 20px;
+    width: 100%;
+}
+.postVenta li{
+    font-family: Agency FB;
+    font-weight: 100;
+    list-style: none;
+    text-align: left;
+    align-items: left;
+    width: 100%;
+    padding: 2px;
+    margin-left: -20px;    
+}
+.icon-checkmark:before {
+    content: "\ea10";
+    margin:0px 20px 0px 13px;
+  }
+.postVenta div{
+    font-size: 1.2rem;
+    color: white;
+    font-family: Agency FB;
+    width: 80%;
+}
+
+/*************************************/
+/* administrador*/
+/* administrador*/
+/* administrador*/
+/* administrador*/
+/* administrador*/
+
+.bodyAdministrator{
+    height: 1200px;
+}
+.welcomeAdminText{
+    font-size:3rem;
+}
+.optionAdmin{
+    font-size:2rem;
+    padding: 0px 0px 0px 1rem;
+    width: 500px;
+    text-align: center;
+    margin: auto;
+}
+.optionAdmin a{
+    text-align: center;
+    margin: auto;
+}
+.optionAdmin img{
+    width: 3rem;
+}
+.icon-cart:before {
+    content: "\e93a";
+}
+
+.formularioAdministracion{
+    display: flex;
+}
+
+body .tableAdministracion{
+    width: 100%;
+    table-layout: fixed;
+}
+.tableAdministracion {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+td a{
+    text-decoration: none;
+    color: #4c5e89;
+}
+.icon-eye:before {
+    content: "\e9ce";
+}
+.icon-pencil:before {
+    content: "\e905";
+}
+.icon-bin2:before {
+    content: "\e9ad";
+}
+.icon-plus:before {
+    content: "\ea0a";
+}
+.icon-user-tie:before {
+    content: "\e976";
+}
+
+
+
+
+/*
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+RESPONSIVE
+RESPONSIVE
+RESPONSIVE
+RESPONSIVE
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+*/
+
+@media(max-width: 1400px){
+        #fotocuerpo1{
+        height: 1000px;
+        max-width: 1400px;
+        margin: auto;
+    }    
+    .menuInf{
+        width:180px;
+        height: 180px;
+    }
+    .textmenuimag{
+        top: 75px;
+        font-size: 28px;
+    }    
+    #fotocuerpo2{
+        height: 850px;
+        max-width: 1400px;
+        margin: 50px auto 0px;       
+    }    
+   
+    .cajaItemProductoText{
+        top: 75%;
+        left: 5%;
+        background-color: white;
+        height: auto;
+    }
+}
+@media(max-width: 1270px){
+    #img1reseña1{
+        height: 400px;
+        width: 320px;
+    }
+    #img2reseña1{
+        height: 400px;
+        width: 320px;
+        margin-left: 20px;
+    }
+
+    #img1reseña2{
+        height: 400px;
+        width: 320px;
+    }
+    #img2reseña2{
+        height: 400px;
+        width: 320px;
+        margin-left: 20px;
+    }
+    #fotocuerpo2{
+        height: 800px;
+        max-width: 1270px;
+        margin: 50px auto 0px;         
+    }
+    .menuInf{
+        width:150px;
+        height: 150px;
+    }
+    .textmenuimag{
+        top: 50px;
+    }
+
+    .cajaItemProducto{
+        width:250px;
+        height: 250px;
+    }
+    .img-default{
+        width:250px;
+        height: 250px;
+    }
+    .cajaItemProductoText{
+        top: 78%;
+        left: 0%;
+        font-size: 1.2rem;
+        margin: 0px 0px 0px 30px;
+        padding: 0.5rem;
+    }
+}
+
+
+
+
+@media (max-width: 1210px){
+    #fotocuerpo1{
+        height: 860px;
+        max-width: 1210px;
+        margin: auto;        
+        padding-top: 700px;
+        padding-left: 20px;
+    }
+    #slogan1{
+        font-size: 50px;
+    }
+    #slogan2{
+        font-size: 20Px;
+    }
+    .menuInf{
+        width: 150px;
+        height: 150px;
+    }    
+    .textmenuimag{
+        top: 70px;
+        font-size: 28px;
+    }  
+    
+}
+
+
+
+/*MOVIL*/
+@media (max-width: 990px){
+    .navwelcome{
+        display: flex;
+    }
+    .li_enc1{
+        background-color: transparent;
+    }
+    .enc1Admin{
+        height: 30px;
+    }
+    .ratswsp{    
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        padding: 10px;
+        top:90%;
+        left: 10px;
+        text-align: center;
+    }
+    .ratswsp a{
+        text-decoration: none;
+    }
+    #iconratswsp{
+        height: 100%;
+        width: 100%;
+        font-size: 2rem;
+    }
+    #ratswsptexto{
+        display: none;
+    }
+
+    .navbar-nav li:hover .menus2 {
+        display: none !important;
+    }
+
+    #logymen{
+        display: grid;
+        grid-template-columns: auto 1fr auto auto;
+        grid-template-rows: auto auto;
+        min-height: 60px;
+    }
+    .log{
+        grid-column: 1/2;
+        grid-row: 1/2;
+    }
+    .logorats {
+        grid-column: 2/3;
+        grid-row: 1/2;
+        display: flex; /* Habilita el uso de Flexbox */
+        align-items: center; /* Centra verticalmente */
+        justify-content: center; /* Centra horizontalmente */
+        height: 100%; /* Asegúrate de que ocupe toda la altura de su celda */
+    }
+    
+    .navbar-toggle{
+        display: block;
+        grid-column: 3/5;
+        grid-row: 1/2;
+    }
+    .navbar-collapse{
+        grid-column: 1/-1;
+        grid-row: 2/3;
+    }
+    .log{
+        width: auto;
+        padding: 0px 5px;
+        border-left: none;
+    }
+    .logout, .loginIco{     
+        align-items: center;
+        height: auto;
+        margin: 0px;
+        padding: 5px;
+        text-align: center;
+        align-items: center;
+    }
+    .container2menu{
+        position: relative;
+    }
+    .textmenu {
+        width: 100%;
+        height: 50px;
+        padding-top: 5px;
+        text-align: center;        
+        margin-left: 0px;
+        position: absolute;
+        z-index: 1000;
+    }
+    
+
+
+    #fotocuerpo1{
+        width: 100%;
+        height: auto;
+        padding: 550px 0px 50px 50px;
+    }
+
+    #reseña1,#reseña2{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        background-color: #f2f2f2;
+        width: 100%;
+        margin: 10px auto 10px;
+        
+    }
+    #contenedorReseña{
+        grid-column: 2/4;
+        width:auto;
+        height: auto;
+        margin: 10px auto 10px;
+        padding: 10px 5px 10px 5px;
+    }
+    #img1reseña1{
+        grid-column: 1/3; 
+        height: 380px;
+        width: 300px;
+        margin: auto;
+    }
+    #img2reseña1{
+        grid-column: 3/5; 
+        height: 380px;
+        width: 300px;
+        margin-left: 20px;
+        margin: auto;
+    }
+    #textReseña{
+        text-align: justify;
+    }
+
+    #img1reseña2{ 
+        grid-column: 1/3; 
+        height: 380px;
+        width: 300px;
+        margin: auto;
+    }
+    #img2reseña2{        
+        grid-column: 3/5; 
+        height: 380px;
+        width: 300px;
+        margin-left: 20px;
+        margin: auto;
+    }
+
+    .MenuInferior{
+        flex-wrap: wrap;
+        margin-top: 30px;
+        height: auto;
+    }      
+    .MenuInferior .ventana{
+        width: 250px;
+        margin: 10px 5px 5px 0px;
+    }
+    
+    .menuInf{
+        width:250px;
+        height:250px;
+    }
+    .textmenuimag{
+        color: white;    
+        position: relative;
+        top: 90px;
+        font-size: 40px;
+        font-family: Agency FB; 
+    }
+
+    #fotocuerpo2{        
+        width: 100%;
+        height: 600px;
+        margin: 40px auto 0px;
+    
+        view-timeline-name: --xx;
+        view-timeline-axis: block;
+        animation-timeline: --xx;
+        animation-name: showimagtec3;
+        animation-range: entry 25% cover 40% ;
+        animation-fill-mode:both;
+    
+        
+    }
+    @keyframes showimagtec3{
+        from{
+            opacity: 0;
+            scale: 25%;
+        }
+        to {
+            opacity: 1;
+            scale: 100%;
+        }
+    }
+    .cajaItemProductoText {
+        top: 78%;
+        left: 0%;
+    }
+
+
+    .welcomeAdminText{
+        font-size:1rem;
+    }
+
+
+
+}
+
+@media(max-width:780px){
+    .containerItemProducto{
+        gap: 0.5rem;
+    }
+    .cajaItemProducto {
+        max-width: 200px;
+        width: auto;
+        height: auto;
+    }
+    .img-default{
+        width: 200px;
+        height: 200px;
+    }
+
+    /*ADMINISTRAR*/
+    .tableAdministracion {
+        overflow-x: auto;
+        white-space: nowrap;
+        font-size: 0.8rem;
+    }
+    .tableAdministracion tr {
+        margin-bottom: 1rem;
+        border: 1px solid #ddd;
+    }   
+    .tableAdministracion td {
+        text-align: center;
+        padding: 0.5rem;
+        position: relative;
+    }
+    .tableAdministracion td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 0.5rem; 
+        text-align: center;
+        font-weight: bold;
+    }
+}
+
+@media(max-width: 450px){   
+    
+    .ratswsp{    
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        padding: 0px;
+        top:80%;
+        left: 10px;
+        text-align: center;
+        z-index: 1000;
+    }
+    .ratswsp a{
+        text-decoration: none;
+    }
+    #iconratswsp{
+        height: 100%;
+        width: 100%;
+        font-size: 2rem;
+    }
+    #ratswsptexto{
+        display: none;
+    }
+
+    .textmenu{
+        width: 100%;
+        height: 50px;
+        padding-top: 5px;
+        text-align: center;
+        margin-left: 0px;
+    }
+    navbar-nav li:hover .menus2 {
+        display: none !important;
+    }
+
+    /* Mantener solo el hover de la clase .textmenu */
+
+    #logymen{
+        height: 60px;
+    }
+
+    .textmenu {
+        background-color: white;
+    } 
+
+    .logorats{
+        margin: 0px 20px;
+    }
+    .logorats img{
+        width: auto;
+        height: 40px;
+    }
+    
+
+    #promociones{
+        height: 22px;
+        line-height: 22px;       
+    }
+    @keyframes slideraPromociones{
+        from{
+            font-size: 10px;
+        }
+        to{
+            font-size: 15px;
+        }
+    }
+    #fotocuerpo1{
+        height: 330px;
+        width: 100%;
+        margin: 0px auto 10px;
+        padding-top: 250px;
+        padding-left: 15px;
+    }
+    
+    #slogan1{
+        font-size: 20px;
+    }
+    #slogan2{
+        font-size: 8px;
+    }
+
+    
+    #reseña1,#reseña2{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        background-color: #f2f2f2;
+        width: 100%;
+        margin: 10px auto 10px;
+        
+    }
+    #contenedorReseña{
+        grid-column: 1/5;
+        width:auto;
+        height: auto;
+        margin: 10px auto 0px;
+        padding: 10px 5px 10px 5px;
+        font-size: 10px;
+    }
+    #img1reseña1{
+        grid-column: 1/3; 
+        height: 255px;
+        width: 170px;
+        margin: auto;
+    }
+    #img2reseña1{
+        grid-column: 3/5;
+        height: 255px;
+        width: 170px;
+        margin-left: 20px;
+        margin: auto;
+    }
+    #textReseña{
+        text-align: justify;
+    }
+
+    #img1reseña2{ 
+        grid-column: 1/3;
+        height: 255px;
+        width: 170px;
+        margin: auto;
+    }
+    #img2reseña2{        
+        grid-column: 3/5;
+        height: 255px;
+        width: 170px;
+        margin-left: 20px;
+        margin: auto;
+    }
+
+    #fotocuerpo2{
+        height: 290px;
+        width: 100%;
+        margin: 50px 0px 0px 0px;
+    
+        view-timeline-name: --xx;
+        view-timeline-axis: block;
+        animation-timeline: --xx;
+        animation-name: showimagtec3;
+        animation-range: entry 25% cover 40% ;
+        animation-fill-mode:both; 
+    }
+    @keyframes showimagtec3{
+        from{
+            opacity: 0;
+            scale: 25%;
+        }
+        to {
+            opacity: 1;
+            scale: 100%;
+        }
+    }
+
+    .MenuInferior{
+        flex-wrap: wrap;
+        margin-top: 30px;
+        height: 250px;
+    }      
+    .MenuInferior .ventana{
+        width: 100px;
+        margin: 10px 5px 5px 0px;
+    }
+    
+    .menuInf{
+        width:100px;
+        height: 100px;
+    }
+    .textmenuimag{
+        color: white;    
+        position: relative;
+        top: 40px;
+        font-size: 20px;
+        font-family: Agency FB; 
+    }
+
+    .footer1{
+        height: 150px;
+        margin-top: 20px;
+        padding-left: 10px;
+    }
+    
+    .p1{
+        width:100px;
+        height: 130px;
+        padding: 5px;
+        margin: 20px 5px 0px 5px;
+        font-size: 10px;
+    }
+    .t1{
+        padding: 5px 0px 5px 0px;
+        margin: auto;
+        font-size: 10px;
+    }
+    
+    .iconosfooter{
+        margin-top: 10px;
+        margin-left: 10px;
+        display: flex;
+        width: 400px;
+        height: 50px;
+        background-color: black;
+    }
+    .iconosfooter div{
+        font-size: 10px;
+        background-color: gray;
+        color: black;
+        margin-left: 10px;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        border-radius: 50%;
+    }  
+    .imagenfooter{
+        margin-top: 20px;
+        margin-right: 5px;
+        width: 105.6px;
+        height: 31px;
+    }
+    .footer-legal{
+        font-size: 7px;
+    }
+
+
+    .cajaItemProducto {
+        max-width: 200px;
+        width: auto;
+        height: auto;
+    }
+    .img-default{
+        width: 200px;
+        height: 200px;
+    }
+    .containerItemProducto{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 0.4rem;
+        width: 100%;
+        margin: 50px 0px auto 0px;
+        border-bottom: 1px solid #8e8e8e;
+    }
+    .cajaItemProducto {
+        max-width: 160px;
+        width: auto;
+        height: auto;
+    }
+    .img-default{
+        width: 160px;
+        height: 160px;
+    }
+
+
+    .cajaItemProductoText{    
+        top: 78%;
+        left: 0%;
+        font-size: 0.8rem;
+        margin: 0px 0px 0px 20px;
+        padding: 0.3rem;
+        text-align: center;
+        display: inline-block;
+    }
+    
+    .containerProducto{
+        display: flex;
+        width: 100%;
+        margin: 30px auto 20px ;
+        justify-content: space-around;
+        height: auto;
+        
+    }
+    .ContainerImagProducto{
+        display: grid;
+        width: 50%;
+        grid-template-columns: repeat(1,1fr);        
+        row-gap: 10px;
+        column-gap: 10px;
+        margin: 0px auto;
+    }
+    .imagenProducto1, .imagenProducto2, .imagenProducto3, .imagenProducto4{
+        height: 100px;
+        width: 100px;
+    }
+
+    .informacionProducto{
+        width: 50%;
+        padding: 0px 5px 10px 5px;
+        margin: 0px 0px 0px 5px;
+    }
+    #titulo{
+        text-align: left;
+        font-size: 20px;
+        height: 30px;
+        line-height: 30px;
+    }
+    .informacionProducto #precio{
+        text-align: left;
+        font-size: 15px;
+        height: 25px;
+        padding-bottom: 5px;
+        border-bottom: 2px solid #c1bfbf;
+    }
+    
+    #medida1,#medida1 div,#descripcion{ 
+        text-align: left;   
+        font-size: 10px;
+        padding: 5px 0px 20px 0px;
+    }
+    .informacionProducto #descripcion div{ 
+        text-align: justify;   
+        font-size: 10px;
+        padding: 5px 0px 30px 0px;
+        width: 100%;
+    }
+    .talla-box{    
+        background-color: #8e8e8e;
+        padding: 0px 12px;
+        margin: 1px;
+        font-size: 0.8rem;
+        color: black;
+        width: 100%;
+        height: 1.8rem;
+        text-align: center;
+        line-height: 1.8rem;
+        
+        font-family: Agency FB;
+    }
+
+    .postVenta{
+        font-size: 0.7rem;
+        padding: 0px;
+        margin: 0px;
+    }
+    .postVenta li{
+        width: 120%;
+        margin: 0px 0px 0px -2rem;
+        padding: 0px;
+    }
+    .postVenta img{
+        width: 1.5rem;
+        height:auto;
+        margin-right:5px;
+    }
+    .icon-checkmark:before {
+        margin:0px 10px 0px 8px;
+    }
+
+    .postVenta div{
+        font-size: 1rem;
+        width: 80%;
+        margin: auto;
+    }
+    
+
+
+
+
+    .QuienesSomos div, .vision div, .mision div{
+        width: auto;
+        font-size: 20px;
+    }
+
+    .QuienesSomos article, .vision article, .mision article{
+        width: auto;
+        font-size: 10px;
+    }
+
+    .bodyTeamRats{
+        height: auto;
+        
+    }
+    .ContainerTeamRats{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        grid-gap: 20px 20px;
+        width: 90%;
+        height: auto;
+        margin: 50px auto 20px; 
+    }
+    .TeamBox{
+        margin: auto;
+        height: auto;
+    }
+    .TeamBox img{
+        width: 180px;
+        height: 180px;
+    }
+    .nameteam{
+        margin: auto;
+        text-align: center;
+        font-size: 20px;
+    }
+
+    .containerEvento{
+        margin: 20px auto 200px;
+        grid-template-columns: repeat(2,1fr);
+        row-gap: 10px;
+        column-gap: 10px;
+        text-align: center;
+    }
+    .imagenEvento{
+        background-size: cover;
+        background-repeat: no-repeat;
+        box-shadow: 0px 0px 5px 1px gray;
+        width: 150px;
+        height: 235px;
+    }
+
+    /*administrador*/
+    
+    body .welcomeAdminText{
+        font-size:1rem;
+        align-items: center;
+    }
+    .optionAdmin{
+        font-size:2rem;
+        padding: 0px 0px 0px 1rem;
+        background-color: red;
+        width: 300px;
+        text-align: center;
+        margin: auto;
+    }
+
+    .optionAdmin span{
+        font-size:1.5rem
+    }
+    .optionAdmin a img{
+        width: 2rem;
+    }
+    .optionAdmin p{
+        font-size:1rem;
+    }
+
+    .formularioAdministracion{
+        display: block;
+    }
+   
+    
+    .tableAdministracion {
+        overflow-x: auto;
+        white-space: nowrap;
+        font-size: 0.8rem;
+    }
+    .tableAdministracion tr {
+        margin-bottom: 1rem;
+        border: 1px solid #ddd;
+    }
+    .tableAdministracion td {
+        text-align: right;
+        padding: 0.5rem;
+        position: relative;
+    }
+    .tableAdministracion td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 0.5rem; 
+        text-align: left;
+        font-weight: bold;
+    }
+}
+
+
+@media(max-width: 400px){    
+
+    .textmenu{
+        width: 100%;
+        height: 50px;
+        padding-top: 5px;
+        text-align: center;
+    }
+    navbar-nav li:hover .menus2 {
+        display: none !important;
+    }
+
+    /* Mantener solo el hover de la clase .textmenu */
+    .textmenu {
+        display: block;
+        margin-left: 0px;
+    }
+
+    #fotocuerpo1{
+        width: 100%;
+        height: auto;
+        margin: auto;
+        padding: 200px 0px 20px 20px;
+    }
+    #slogan1{
+        font-size: 15px;
+    }
+    #slogan2{
+        font-size: 8px;
+        width: 150px;
+    }
+    @keyframes slideraPromociones{
+        from{
+            font-size: 10px;
+        }
+        to{
+            font-size: 15px;
+        }
+    }
+    #textReseña{
+        width: 300px;
+    }
+    #img1reseña1{
+        width: 150px;
+        height: 200px;
+    }
+    #img2reseña1{
+        width: 150px;
+        height: 200px;
+    }
+    #img1reseña2{
+        width: 150px;
+        height: 200px;
+    }
+    #img2reseña2{
+        width: 150px;
+        height: 200px;
+    }
+
+    #fotocuerpo2{
+        height: 250px;
+        width: 100%;
+        margin: 40px 0px 0px 0px;
+    
+        view-timeline-name: --xx;
+        view-timeline-axis: block;
+        animation-timeline: --xx;
+        animation-name: showimagtec3;
+        animation-range: entry 25% cover 40% ;
+        animation-fill-mode:both;
+    
+        
+    }
+    @keyframes showimagtec3{
+        from{
+            opacity: 0;
+            scale: 25%;
+        }
+        to {
+            opacity: 1;
+            scale: 100%;
+        }
+    }
+
+    .MenuInferior{
+        flex-wrap: wrap;
+        margin-top: 30px;
+        height: 250px;
+    }
+    .imagenEvento1, .imagenEvento2, .imagenEvento3, .imagenEvento4{    
+        
+        box-shadow: 0px 0px 5px 1px gray;
+        height: 200px;
+        width: 150px;
+    }
+
+    .QuienesSomos div, .vision div, .Mision div{
+        width: auto;
+        font-size: 20px;
+    }
+
+    .QuienesSomos article, .vision article, .Mision article{
+        width: auto;
+        font-size: 10px;
+    }
+    .ContainerImagProducto img{
+        width: 100px;
+        height: 100px;
+    }
+    .Container2ImagProducto img{
+        width: 100px;
+        height: 100px;
+    }
+
+    
+    #descripcion li{
+        margin-left: -30px;
+    }
+
+    
+}   
+
+
+
+
+
+
+
