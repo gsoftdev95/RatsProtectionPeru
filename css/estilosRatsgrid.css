@@ -655,21 +655,23 @@ MODELO NAVEGACION NIVEL 2
     font-weight: 400;
     font-style: normal;
     
-    height: 500px;
-    padding-top: 100px;
+    height: auto;
+    padding-top: 100px ;
+    padding-bottom: 100px ;
     background-color: whitesmoke;
 }
 .QuienesSomos div{
     font-size: 30px;
-    padding-bottom: 20px;    
-    width: 400px;    
+    padding-bottom: 20px;
+    width: 400px;
     margin: auto;
     font-weight: bolder;
     padding: 20px;
+    text-align: center;
 }
 .QuienesSomos article{
     display: block;
-    width: 400px;
+    width: 50%;
     margin: auto;
     text-align: justify;
     padding: 20px;
@@ -682,8 +684,9 @@ MODELO NAVEGACION NIVEL 2
     font-weight: 400;
     font-style: normal;
     
-    height: 500px;
-    padding-top: 100px;
+    height: auto;
+    padding-top: 100px ;
+    padding-bottom: 100px ;
     background-color: whitesmoke;
 }
 .vision div{
@@ -693,10 +696,11 @@ MODELO NAVEGACION NIVEL 2
     margin: auto;
     font-weight: bolder;
     padding: 20px;
+    text-align: center;
 }
 .vision article{
     display: block;
-    width: 400px;
+    width: 50%;
     margin: auto;
     text-align: justify;
     padding: 20px;
@@ -709,8 +713,9 @@ MODELO NAVEGACION NIVEL 2
     font-weight: 400;
     font-style: normal;
     
-    height: 500px;
-    padding-top: 100px;
+    height: auto;
+    padding-top: 100px ;
+    padding-bottom: 100px ;
     background-color: whitesmoke;
 }
 .Mision div{
@@ -720,10 +725,11 @@ MODELO NAVEGACION NIVEL 2
     margin: auto;
     font-weight: bolder;
     padding: 20px;
+    text-align: center;
 }
 .Mision article{
     display: block;
-    width: 400px;
+    width: 50%;
     margin: auto;
     text-align: justify;
     padding: 20px;
