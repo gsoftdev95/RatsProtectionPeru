@@ -20,9 +20,9 @@
     <?php endif;?>  
             
     <div class="container-fluid m-0 p-0 border border-light-subtle" id="logymen">
-        <a class="navbar-brand" href="./index">
+        <a class="navbar-brand" href="https://ratsprotectionperu.com/">
             <div class="logorats">
-                <img src="./imagenes/logo_negro_sin_fondo300x89.png" alt="">
+                <img src="./imagenes/logo_negro_sin_fondo300x89.png">
             </div>
         </a>
         <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
