@@ -3,6 +3,7 @@ require_once('helpers/dd.php');
 require_once('controladores/funciones.php');
 require_once('partials/conexionBD.php');
 controlIngreso();
+
 $errores = [];
 if ($_POST) {
     $nombreProducto = $_POST['nombreProducto'];
@@ -17,7 +18,7 @@ if ($_POST) {
         $errores[] = "El ID de la categoría debe ser 1 (Protecciones), 2 (Ropa) o 3 (Accesorios).";
     }
 
-    $errores = array_merge($errores, validarProducto($_POST, $_FILES));
+        
 
     if (count($errores) === 0) {
         $avatar = armarLaImagenProducto($_FILES);

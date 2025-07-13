@@ -27,43 +27,53 @@
         <!-- 
         <div id="promociones">20% de dscto en tu primera compra</div>
         -->
-        <section id="cuerpoPrincipal">      
-            <div id="fotocuerpo1">
-                <div id="slogan1"><i>RATS PROTECTION</i></div>
-                <div id="slogan2">Que tus habilidades no se limiten por tu falta de seguridad.</div>
+        <section id="cuerpoPrincipal" class="cuerpoPrincipal">      
+            <div id="fotocuerpo1" class="fotocuerpo1">
+                <div id="slogan">
+                    <i>RATS PROTECTION</i>
+                    <p>Que tus habilidades no se limiten por tu falta de seguridad.</p>
+                </div>
+                
             </div>
     
-            <div id="reseña1">
-                <div id="contenedorReseña">
-                    <article id="tituloReseña"></article>
-                    <article id="textReseña">
-                        Las carreras de ciclismo auspiciadas por nuestra marca, se destacan por su emocionante despliegue de talento y resistencia. Todos los deportistas demuestran habilidades impresionantes y capacidades inigualables para enfrentar desafíos en diversos terrenos. Rats se enorgullece de contribuir con la seguridad y el rendimiento de los mismos, brindando protecciones de alta calidad que les permitan enfocarse en dar lo mejor de sí.
-                    </article>
+            <section class="reseñaInner">
+                <div id="reseña1">
+                    <div id="contenedorReseña">
+                        <article id="tituloReseña"></article>
+                        <article id="textReseña">
+                            Las carreras de ciclismo auspiciadas por nuestra marca, se destacan por su emocionante despliegue de talento y resistencia. Todos los deportistas demuestran habilidades impresionantes y capacidades inigualables para enfrentar desafíos en diversos terrenos. Rats se enorgullece de contribuir con la seguridad y el rendimiento de los mismos, brindando protecciones de alta calidad que les permitan enfocarse en dar lo mejor de sí.
+                        </article>
+                    </div>
+                    <div id="img1reseña1"></div>
+                    <div id="img2reseña1"></div>
                 </div>
-                <div id="img1reseña1"></div>
-                <div id="img2reseña1"></div>
-            </div>
-    
-            <div id="reseña2">            
-                <div id="img1reseña2"></div>
-                <div id="img2reseña2"></div>
-                <div id="contenedorReseña">
-                    <article id="tituloReseña"></article>
-                    <article id="textReseña">
-                        La calidad de nuestras protecciones garantiza que los deportistas puedan concentrarse en las carreras sin preocuparse por su seguridad.
-                        Este patrocinio reafirma nuestro compromiso con el deporte, apoyándolos en cada paso y promoviendo un ambiente de competencia justa y segura.
-                    </article>
+        
+                <div id="reseña2">            
+                    <div id="img1reseña2"></div>
+                    <div id="img2reseña2"></div>
+                    <div id="contenedorReseña">
+                        <article id="tituloReseña"></article>
+                        <article id="textReseña">
+                            La calidad de nuestras protecciones garantiza que los deportistas puedan concentrarse en las carreras sin preocuparse por su seguridad.
+                            Este patrocinio reafirma nuestro compromiso con el deporte, apoyándolos en cada paso y promoviendo un ambiente de competencia justa y segura.
+                        </article>
+                    </div>
                 </div>
-            </div>
+            </section>
             
-            <div id="fotocuerpo2">
-                <section id="contenedorslogan">
-                    <div id="slogan1"><i></i></div>
-                    <div id="slogan2"></div>
-                </section>            
-            </div>
+            <section class="portada2Inner">
+                <div id="fotocuerpo2">
+                    <section id="contenedorslogan">
+                        <div id="slogan1"><i></i></div>
+                        <div id="slogan2"></div>
+                    </section>            
+                </div>
+            </section>
+            
     
-            <?php include_once('./partials/bottomNavBar.php')?>
+            <section class="botNavInner">
+                <?php include_once('./partials/bottomNavBar.php')?>
+            </section>
         </section>
     </section> 
     

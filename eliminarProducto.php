@@ -40,7 +40,7 @@
             <form action="" method="POST">
                 <div class="form-group">
                     
-                <label for="id">ID</label>
+                    <label for="id">ID</label>
                     <input type="text" class="form-control" name="id" value="<?= $productos['id'];?>" readonly>
                     <label for="nombreProducto">Nombre del producto</label>
                     <input type="text" class="form-control" name="nombreProducto" value="<?= $productos['nombreProducto'];?>">

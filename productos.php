@@ -50,44 +50,48 @@ if (!empty($categoria)) {
     </section>
     
     <div class="containerItemProducto">
-        <?php if (!empty($productos)): ?>
-            <?php foreach ($productos as $producto): ?>
-                <?php 
-                // Decodificar el JSON de avatar
-                $imagenes = json_decode($producto['avatar'], true);
+        <section class="containerItemProductoInner">
+            <?php if (!empty($productos)): ?>
+                <?php foreach ($productos as $producto): ?>
+                    <?php 
+                    // Decodificar el JSON de avatar
+                    $imagenes = json_decode($producto['avatar'], true);
 
-                // Validar si es un array y contiene al menos una imagen
-                if (is_array($imagenes) && count($imagenes) > 0) {
-                    $primeraImagen = htmlspecialchars($imagenes[0]);
-                } else {
-                    $primeraImagen = 'default.jpg'; // Imagen por defecto
-                }
-                ?>
-                <div class="cajaItemProducto">
-                    <a href="productoCategoria.php?id=<?= $producto['id'] ?>">
-                        <div class="img-container">
-                            <?php 
-                            // Decodificar el JSON de avatar
-                            $imagenes = json_decode($producto['avatar'], true);
-                            // Obtener la primera imagen
-                            $primeraImagen = is_array($imagenes) && count($imagenes) > 0 ? htmlspecialchars($imagenes[0]) : 'default.jpg';
-                            // Obtener la segunda imagen
-                            $segundaImagen = is_array($imagenes) && count($imagenes) > 1 ? htmlspecialchars($imagenes[1]) : 'default.jpg';
-                            ?>
-                            <img class="img-default" src="imgRats/Productos/<?= $primeraImagen ?>" alt="<?= htmlspecialchars($producto['nombreProducto']) ?>">
-                            <img class="img-hover" src="imgRats/Productos/<?= $segundaImagen ?>" alt="<?= htmlspecialchars($producto['nombreProducto']) ?>">
-                        </div>
-                        <div class="cajaItemProductoText"><?= htmlspecialchars($producto['nombreProducto']) ?></div>
-                    </a>                    
-                </div>
-            <?php endforeach; ?>
-        <?php else: ?>
-            <p>No hay productos disponibles en esta categoría.</p>
-        <?php endif; ?>
+                    // Validar si es un array y contiene al menos una imagen
+                    if (is_array($imagenes) && count($imagenes) > 0) {
+                        $primeraImagen = htmlspecialchars($imagenes[0]);
+                    } else {
+                        $primeraImagen = 'default.jpg'; // Imagen por defecto
+                    }
+                    ?>
+                    <div class="cajaItemProducto">
+                        <a href="productoCategoria.php?id=<?= $producto['id'] ?>">
+                            <div class="img-container">
+                                <?php 
+                                // Decodificar el JSON de avatar
+                                $imagenes = json_decode($producto['avatar'], true);
+                                // Obtener la primera imagen
+                                $primeraImagen = is_array($imagenes) && count($imagenes) > 0 ? htmlspecialchars($imagenes[0]) : 'default.jpg';
+                                // Obtener la segunda imagen
+                                $segundaImagen = is_array($imagenes) && count($imagenes) > 1 ? htmlspecialchars($imagenes[1]) : 'default.jpg';
+                                ?>
+                                <img class="img-default" src="imgRats/Productos/<?= $primeraImagen ?>" alt="<?= htmlspecialchars($producto['nombreProducto']) ?>">
+                                <img class="img-hover" src="imgRats/Productos/<?= $segundaImagen ?>" alt="<?= htmlspecialchars($producto['nombreProducto']) ?>">
+                            </div>
+                            <div class="cajaItemProductoText"><?= htmlspecialchars($producto['nombreProducto']) ?></div>
+                        </a>                    
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p>No hay productos disponibles en esta categoría.</p>
+            <?php endif; ?>
+        </section>
     </div>
 
 
-    <?php include_once('./partials/bottomNavBar.php')?>
+    <section class="botNavInner">
+        <?php include_once('./partials/bottomNavBar.php')?>
+    </section>
 
     <footer>
         <?php include_once('./partials/footer.php')?>

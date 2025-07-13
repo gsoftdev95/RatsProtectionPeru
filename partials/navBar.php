@@ -3,7 +3,7 @@
     require_once('helpers/dd.php');
 ?>
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary d-block m-0 p-0">
+<nav class="navbar navbar-expand-lg m-0 p-0">
     <?php if(isset($_SESSION['nombre'])) :?>
     <div class="my-2 my-lg-0 navbar-nav navwelcome">   
         
@@ -19,8 +19,8 @@
     </div>
     <?php endif;?>  
             
-    <div class="container-fluid m-0 p-0 border border-light-subtle" id="logymen">
-        <a class="navbar-brand" href="https://ratsprotectionperu.com/">
+    <div class="navMain container-fluid m-0 p-0" id="logymen">
+        <a class="navbar-brand" href="./index.php"><!--href="https://ratsprotectionperu.com/"-->
             <div class="logorats">
                 <img src="./imagenes/logo_negro_sin_fondo300x89.png">
             </div>

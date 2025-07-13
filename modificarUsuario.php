@@ -18,8 +18,8 @@
     $usuario=detalleUsuario($bd,$id,'usuariorats'); 
 
     if($_POST){
-            modificarUsuario($bd,'usuariorats',$_POST);
-            header('location:administrarUsuario.php');
+        modificarUsuario($bd,'usuariorats',$_POST);
+        header('location:administrarUsuario.php');
     }
 
 ?>

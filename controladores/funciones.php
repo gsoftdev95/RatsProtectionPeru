@@ -1,4 +1,15 @@
 <?php
+
+// Primero, configuramos los parámetros de la cookie de sesión
+session_set_cookie_params([
+    'lifetime' => 0,
+    'path' => '/',
+    'domain' => '',
+    'secure' => true,
+    'httponly' => true,
+    'samesite' => 'Strict'
+]);
+
 //Si o si deben colocarlo
 //--------------
 session_start();
@@ -176,8 +187,14 @@ function seteoUsuario($usuario){
 }
 //Función para guardar en el navegador los datos del usuario
 function seteoCookie($usuario){
-    /*setcookie('correo', $usuario['correo'],time()+60*60*24*365*10);*/
-    setcookie('correo', $usuario['correo'],time()+3600);
+    setcookie('correo', $usuario['correo'], [
+        'expires' => time() + 3600,
+        'path' => '/',
+        'domain' => '',
+        'secure' => true,
+        'httponly' => true,
+        'samesite' => 'Strict'
+    ]);
 }
 
 function acceso($bd, $tabla, $username) {

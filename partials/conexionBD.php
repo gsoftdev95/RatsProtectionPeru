@@ -1,3 +1,3 @@
 <?php
-$bd = conexion('localhost','rats_protection','root','');
+$bd = conexion('localhost','gsoft_ratsprotectionbd','root','');
 ?>

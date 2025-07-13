@@ -63,7 +63,7 @@
                     <?php foreach ($producto as $id => $productos) :?>
                         <tr>
                             <td class="text-center text-primary-emphasis"><?= $productos['id'] ?></td>
-                            <td class="text-primary-emphasis"><?= $productos['nombreProducto']?></td>
+                            <td class="text-primary-emphasis"><?= $productos['nombreProducto']?></td> <!--"nombreProducto" es la columna de la BD-->
                             <td class="text-center text-primary-emphasis"><?= $productos['categoriaProducto']?></td>
                             <td class="text-center text-primary-emphasis"><?= $productos['precio']?></td>
                             <!-- Envío de ID por Query String -->
