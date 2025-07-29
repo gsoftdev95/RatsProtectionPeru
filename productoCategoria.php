@@ -12,19 +12,19 @@ if (!$idProducto) {
 }
 
 // Obtiene los datos del producto
-$producto = obtenerProductoPorId($bd, $idProducto);
+$productoSeleccionado = obtenerProductoPorId($bd, $idProducto);
 
-if (!$producto) {
+if (!$productoSeleccionado) {
     echo "Producto no encontrado.";
     exit;
 }
 
 // Decodifica el JSON de imágenes
-$imagenes = !empty($producto['avatar']) ? json_decode($producto['avatar'], true) : [];
+$imagenes = !empty($productoSeleccionado['avatar']) ? json_decode($productoSeleccionado['avatar'], true) : [];
 // Decodifica el JSON de especificaciones
-$especificaciones = !empty($producto['especificaciones']) ? json_decode($producto['especificaciones'], true) : [];
+$especificaciones = !empty($productoSeleccionado['especificaciones']) ? json_decode($productoSeleccionado['especificaciones'], true) : [];
 // Decodifica el JSON de tallas
-$tallas = !empty($producto['tallas']) ? json_decode($producto['tallas'], true) : [];
+$tallas = !empty($productoSeleccionado['tallas']) ? json_decode($productoSeleccionado['tallas'], true) : [];
 ?>
 
 <!DOCTYPE html>
@@ -51,7 +51,7 @@ $tallas = !empty($producto['tallas']) ? json_decode($producto['tallas'], true) :
                 <?php if (!empty($imagenes) && is_array($imagenes)): ?>
                     <?php foreach ($imagenes as $index => $imagen): ?>
                         <a href="imgRats/Productos/<?= htmlspecialchars($imagen) ?>" data-lightbox="models">
-                            <img src="imgRats/Productos/<?= htmlspecialchars($imagen) ?>" alt="<?= htmlspecialchars($producto['nombreProducto']) ?>">
+                            <img src="imgRats/Productos/<?= htmlspecialchars($imagen) ?>" alt="<?= htmlspecialchars($productoSeleccionado['nombreProducto']) ?>">
                         </a>
                     <?php endforeach; ?>
                 <?php else: ?>
@@ -61,9 +61,9 @@ $tallas = !empty($producto['tallas']) ? json_decode($producto['tallas'], true) :
 
             <section class="informacionProducto">
                 <section class="informacionProductoSub">
-                    <div id="titulo" class="titulo"><b><?= htmlspecialchars($producto['nombreProducto']) ?></b></div>
-                    <div id="categoria"><b>Categoría:</b> <?= htmlspecialchars($producto['categoriaProducto']) ?></div>
-                    <div id="precio">S/. <?= number_format($producto['precio'], 2) ?></div>
+                    <div id="titulo" class="titulo"><b><?= htmlspecialchars($productoSeleccionado['nombreProducto']) ?></b></div>
+                    <div id="categoria"><b>Categoría:</b> <?= htmlspecialchars($productoSeleccionado['categoriaProducto']) ?></div>
+                    <div id="precio">S/. <?= number_format($productoSeleccionado['precio'], 2) ?></div>
                     <div id="talla">
                         <b>Tallas:</b><br>
                         <div class="containerTalla">
@@ -79,7 +79,7 @@ $tallas = !empty($producto['tallas']) ? json_decode($producto['tallas'], true) :
                     <div id="descripcion">
                         <b>Descripción:</b><br>
                         <div>
-                            <?= nl2br(htmlspecialchars($producto['descripcion'])) ?>
+                            <?= nl2br(htmlspecialchars($productoSeleccionado['descripcion'])) ?>
                         </div>
                     </div> 
                     <?php if (!empty($especificaciones) && is_array($especificaciones) && array_filter($especificaciones)): ?>

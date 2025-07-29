@@ -1,6 +1,44 @@
 <?php
-    require_once('controladores/funciones.php');
-    require_once('helpers/dd.php');
+require_once('helpers/dd.php');
+require_once('controladores/funciones.php');
+require_once('partials/conexionBD.php');
+
+// Consulta todos los productos con su tipo
+$sql = "SELECT p.*, t.categoria AS tipo_nombre
+        FROM productos p
+        JOIN tipoproductos t ON p.tipoid = t.id";
+
+$stmt = $bd->prepare($sql);
+$stmt->execute();
+$datos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// Agrupar por categoría y dentro de cada una, por tipoid
+$menu_categorias = [];
+
+foreach ($datos as $row) {
+    $categoria = $row['categoriaProducto'];
+    $tipoid = $row['tipoid'];
+
+    if (!isset($menu_categorias[$categoria])) {
+        $menu_categorias[$categoria] = [];
+    }
+
+    if (!isset($menu_categorias[$categoria][$tipoid])) {
+        $menu_categorias[$categoria][$tipoid] = [];
+    }
+
+    $menu_categorias[$categoria][$tipoid][] = [
+        'id' => $row['id'],
+        'nombre' => $row['nombreProducto']
+    ];
+}
+
+// Etiquetas de tipo
+$etiquetas_tipo = [
+    1 => 'Protecciones',
+    3 => 'Accesorios',
+    2 => 'Ropa'
+];
 ?>
 
 <nav class="navbar navbar-expand-lg m-0 p-0">
@@ -30,95 +68,28 @@
         </button>
         <div class="collapse navbar-collapse m-0 p-0 container-fluid" id="navbarSupportedContent">
             <ul class="container2menu navbar-nav me-auto mb-2 mb-lg-0 p-0 " >
-                <li class="nav-item dropdown textmenu">
-                    <a class="nav-link dropdown-toggle text-black" href="./productos.php?categoria=MTB" role="button" data-bs-toggle="" aria-expanded="false">
-                        MTB
-                    </a>
-                    <ul class="dropdown-menu menus2">
-                        <li><a class="dropdown-item" href="./productoCategoria?id=1">Canilleras</a></li>
-                        <li><a class="dropdown-item" href="./productoCategoria?id=2">Coderas</a></li>
-                        <li><a class="dropdown-item" href="./productoCategoria?id=3">Guantes</a></li>
-                        <li><a class="dropdown-item" href="./productoCategoria?id=4">Impact Short</a></li>
-                        <li><a class="dropdown-item" href="./productoCategoria?id=5">Peto</a></li>                            
-                        <li><a class="dropdown-item" href="./productoCategoria?id=6">Rodilleras</a></li>
-                        <li><a class="dropdown-item" href="./productoCategoria?id=7">Tobilleras</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="./productoCategoria?id=8">Bag Bike MTB</a></li>
-                        <li><a class="dropdown-item" href="./productoCategoria?id=9">Bolsa Hidratante</a></li>
-                        <li><a class="dropdown-item" href="./productoCategoria?id=10">Helmet Bag</a></li>
-                        <li><a class="dropdown-item" href="./productoCategoria?id=11">Hip Pack</a></li>
-                        <li><a class="dropdown-item" href="./productoCategoria?id=12">Jersey Space Air</a></li>
-                        <li><a class="dropdown-item" href="./productoCategoria?id=13">Pantalón</a></li>
-                        <li><a class="dropdown-item" href="./productoCategoria?id=14">Short</a></li>
-                        <li><a class="dropdown-item" href="./productoCategoria?id=15">Strap</a></li>
-                        <li><a class="dropdown-item" href="./productoCategoria?id=16">Tailgate Cover</a></li>
-                        
-                    </ul>
-                </li>
-                <li class="nav-item dropdown textmenu">
-                    <a class="nav-link dropdown-toggle text-black" href="./productos.php?categoria=BMX" role="button" data-bs-toggle="" aria-expanded="false">
-                        BMX
-                    </a>
-                    <ul class="dropdown-menu menus2">
-                        <li><a class="dropdown-item" href="./productoCategoria?id=17">Canilleras</a></li>
-                        <li><a class="dropdown-item" href="./productoCategoria?id=18">Coderas</a></li>
-                        <li><a class="dropdown-item" href="./productoCategoria?id=19">Guantes</a></li>
-                        <li><a class="dropdown-item" href="./productoCategoria?id=20">Impact Short</a></li>
-                        <li><a class="dropdown-item" href="./productoCategoria?id=21">Rodicanilleras</a></li>
-                        <li><a class="dropdown-item" href="./productoCategoria?id=22">Rodilleras</a></li>
-                        <li><a class="dropdown-item" href="./productoCategoria?id=23">Tobilleras</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="./productoCategoria?id=24">Bag Pack</a></li>
-                        <li><a class="dropdown-item" href="./productoCategoria?id=25">Maleta BMX</a></li>
-                        <li><a class="dropdown-item" href="./productoCategoria?id=26">Frame Bag</a></li>
-                        <li><a class="dropdown-item" href="./productoCategoria?id=27">Switch Pack</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown textmenu">
-                    <a class="nav-link dropdown-toggle text-black" href="./productos.php?categoria=Roller" role="button" data-bs-toggle="" aria-expanded="false">
-                        Roller
-                    </a>
-                    <ul class="dropdown-menu menus2">
-                        <li><a class="dropdown-item" href="./productoCategoria?id=28">Canilleras</a></li>
-                        <li><a class="dropdown-item" href="./productoCategoria?id=29">Coderas</a></li>
-                        <li><a class="dropdown-item" href="./productoCategoria?id=30">Guantes</a></li>
-                        <li><a class="dropdown-item" href="./productoCategoria?id=31">Impact Short</a></li>                            
-                        <li><a class="dropdown-item" href="./productoCategoria?id=32">Rodilleras</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown textmenu">
-                    <a class="nav-link dropdown-toggle text-black" href="./productos.php?categoria=ScooterSkate" role="button" data-bs-toggle="" aria-expanded="false">
-                        Scooter/Skate
-                    </a>
-                    <ul class="dropdown-menu menus2">
-                        <li><a class="dropdown-item" href="./productoCategoria?id=33">Canilleras</a></li>
-                        <li><a class="dropdown-item" href="./productoCategoria?id=34">Coderas</a></li>                            
-                        <li><a class="dropdown-item" href="./productoCategoria?id=35">Impact Short</a></li>                            
-                        <li><a class="dropdown-item" href="./productoCategoria?id=36">Rodilleras</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown textmenu">
-                    <a class="nav-link dropdown-toggle text-black" href="./productos.php?categoria=Kids" role="button" data-bs-toggle="" aria-expanded="false">
-                        Kids
-                    </a>
-                    <ul class="dropdown-menu menus2">                            
-                        <li><a class="dropdown-item" href="./productoCategoria?id=37">Coderas</a></li>                            
-                        <li><a class="dropdown-item" href="./productoCategoria?id=38">Impact Short</a></li>                            
-                        <li><a class="dropdown-item" href="./productoCategoria?id=39">Peto</a></li>
-                        <li><a class="dropdown-item" href="./productoCategoria?id=40">Rodicanilleras</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown textmenu">
-                    <a class="nav-link dropdown-toggle text-black" href="./productos.php?categoria=Extras" role="button" data-bs-toggle="" aria-expanded="false">
-                        Extras
-                    </a>
-                    <ul class="dropdown-menu menus2">
-                        <li><a class="dropdown-item" href="./productoCategoria?id=41">Bag Pack</a></li>
-                        <li><a class="dropdown-item" href="./productoCategoria?id=42">Caps</a></li>                            
-                        <li><a class="dropdown-item" href="./productoCategoria?id=43">Key Chain</a></li>                            
-                        <li><a class="dropdown-item" href="./productoCategoria?id=44">Polera</a></li>
-                    </ul>
-                </li>
+                <?php foreach ($menu_categorias as $categoria => $tipos): ?>
+                    <li class="nav-item dropdown textmenu">
+                        <a class="nav-link dropdown-toggle text-black" href="./productos?categoria=<?= $categoria?>" role="button" data-bs-toggle="" aria-expanded="false">
+                            <?= htmlspecialchars($categoria) ?>
+                        </a>
+                        <ul class="dropdown-menu menus2">
+                            <?php foreach ([1, 3, 2] as $tipoid): ?>
+                                <?php if (isset($tipos[$tipoid])): ?>
+                                    <li class="dropdown-header fw-bold"><?= $etiquetas_tipo[$tipoid] ?></li>
+                                    <?php foreach ($tipos[$tipoid] as $producto): ?>
+                                        <li>
+                                            <a class="dropdown-item" href="./detalleProducto.php?id=<?= $producto['id'] ?>">
+                                                <?= htmlspecialchars($producto['nombre']) ?>
+                                            </a>
+                                        </li>
+                                    <?php endforeach; ?>
+                                    <li><hr class="dropdown-divider"></li>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        </ul>
+                    </li>
+                <?php endforeach; ?>
                 <li class="nav-item dropdown textmenu">
                     <a class="nav-link text-black" href="./TeamRats" role="button" data-bs-toggle="" aria-expanded="false">
                         Team Rats

@@ -98,7 +98,7 @@ nav{
 .menus2{
     position: absolute;
     display: none;
-    width: 98px;
+    width: auto;
     background-color: white;
     list-style: none;
     top:99px;
@@ -1953,12 +1953,8 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
         font-size: 10px;
     }
     .ContainerImagProducto img{
-        width: 100px;
-        height: 100px;
-    }
-    .Container2ImagProducto img{
-        width: 100px;
-        height: 100px;
+        width: 100%;
+        height: auto;
     }
 
     

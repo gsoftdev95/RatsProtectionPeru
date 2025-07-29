@@ -32,8 +32,7 @@
                 <div id="slogan">
                     <i>RATS PROTECTION</i>
                     <p>Que tus habilidades no se limiten por tu falta de seguridad.</p>
-                </div>
-                
+                </div>                
             </div>
     
             <section class="reseñaInner">

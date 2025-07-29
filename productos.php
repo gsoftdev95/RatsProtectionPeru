@@ -3,15 +3,12 @@ require_once('helpers/dd.php');
 require_once('controladores/funciones.php');
 require_once('partials/conexionBD.php');
 
-// Captura la categoría de la URL
-$categoria = isset($_GET['categoria']) ? $_GET['categoria'] : '';
+$categoriaSeleccionada  = isset($_GET['categoria']) ? $_GET['categoria'] : '';
 
-// Valida que la categoría no esté vacía
-if (!empty($categoria)) {
-    // Obtén los productos de la categoría
-    $productos = obtenerProductosPorCategoria($bd, $categoria);
+if (!empty($categoriaSeleccionada )) {
+    $productos = obtenerProductosPorCategoria($bd, $categoriaSeleccionada );
 } else {
-    $productos = []; // Si no hay categoría, no muestra productos
+    $productos = [];
 }
 ?>
 
@@ -32,17 +29,18 @@ if (!empty($categoria)) {
     </aside>
 
     <section class="containerIMGCategory">
-        <?php if ($categoria == 'MTB'): ?>
+        
+        <?php if ($categoriaSeleccionada  == 'MTB'): ?>            
             <img src="./imagenes/fotoPortadaMTB.png" alt="Portada MTB" class="IMGCategoryCover">
-        <?php elseif ($categoria == 'BMX'): ?>
+        <?php elseif ($categoriaSeleccionada  == 'BMX'): ?>
             <img src="./imagenes/fotoPortadaBMX.png" alt="Portada BMX" class="IMGCategoryCover">
-        <?php elseif ($categoria == 'Roller'): ?>
+        <?php elseif ($categoriaSeleccionada  == 'Roller'): ?>
             <img src="./imagenes/rollerPortada.png" alt="Portada Roller" class="IMGCategoryCover">
-        <?php elseif ($categoria == 'ScooterSkate'): ?>
+        <?php elseif ($categoriaSeleccionada  == 'ScooterSkate'): ?>
             <img src="./imagenes/fotoPortadaSkate.png" alt="Portada Roller" class="IMGCategoryCover">
-        <?php elseif ($categoria == 'Kids'): ?>
+        <?php elseif ($categoriaSeleccionada  == 'Kids'): ?>
             <img src="./imagenes/kidsPortada.jpg" alt="Portada Roller" class="IMGCategoryCover">
-        <?php elseif ($categoria == 'Extras'): ?>
+        <?php elseif ($categoriaSeleccionada  == 'Extras'): ?>
             <img src="./imagenes/fotoPortadaExtras.png" alt="Portada Roller" class="IMGCategoryCover">
         <?php else: ?>
             <img src="./imagenes/fotoPortadaGenerica.png" alt="Portada Generica" class="IMGCategoryCover">
@@ -72,7 +70,6 @@ if (!empty($categoria)) {
                                 $imagenes = json_decode($producto['avatar'], true);
                                 // Obtener la primera imagen
                                 $primeraImagen = is_array($imagenes) && count($imagenes) > 0 ? htmlspecialchars($imagenes[0]) : 'default.jpg';
-                                // Obtener la segunda imagen
                                 $segundaImagen = is_array($imagenes) && count($imagenes) > 1 ? htmlspecialchars($imagenes[1]) : 'default.jpg';
                                 ?>
                                 <img class="img-default" src="imgRats/Productos/<?= $primeraImagen ?>" alt="<?= htmlspecialchars($producto['nombreProducto']) ?>">
@@ -83,7 +80,7 @@ if (!empty($categoria)) {
                     </div>
                 <?php endforeach; ?>
             <?php else: ?>
-                <p>No hay productos disponibles en esta categoría.</p>
+                <p>No hay productos disponibles en esta categoría <?= $categoriaSeleccionada  ?> .</p>
             <?php endif; ?>
         </section>
     </div>

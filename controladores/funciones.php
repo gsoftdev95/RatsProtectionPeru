@@ -512,14 +512,11 @@ function obtenerProductosPorCategoria($bd, $categoria) {
             WHERE categoriaProducto = :categoria 
             ORDER BY tipoid ASC, nombreProducto ASC";
     
-    // Preparar la consulta
     $query = $bd->prepare($sql);
     $query->bindValue(':categoria', $categoria);
     
-    // Ejecutar la consulta
     $query->execute();
     
-    // Obtener los resultados
     return $query->fetchAll(PDO::FETCH_ASSOC);
 }
 
