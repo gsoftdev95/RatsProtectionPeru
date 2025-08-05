@@ -358,6 +358,7 @@ nav{
     justify-content: center;
     align-items: center;
     width: 100%;
+    margin: 0px 0px 50px 0px ;
 }
 .MenuInferior{
     max-width: 1500px;
@@ -423,7 +424,7 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 0px;
     background-color: black;
 }
 .footerInner{
@@ -962,6 +963,90 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 /* administrador*/
 /* administrador*/
 
+.mainAdmin {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100%;
+}
+.sidebarAdmin {
+    width: 80px;
+    background-color: rgb(36, 36, 36);
+    transition: width 0.3s;
+    overflow-x: hidden;
+    height: 180vh;
+    box-shadow: inset 0px 0px 10px rgba(77, 77, 77, 0.5);
+    display: flex;
+    flex-direction: column;
+}
+.sidebarAdmin:hover {
+    width: 200px;
+}
+.sidebarAdmin li{
+    text-align: center;
+    width: 100%;
+}
+.sidebarAdmin .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgb(105, 105, 105);
+    white-space: nowrap;
+    transition: all 0.3s;
+    text-align: center;
+}
+
+.sidebarAdmin .link-text {
+    display: none;
+    font-size: 1rem;
+}
+
+.sidebarAdmin:hover .link-text {
+    display: inline;
+}
+
+.sidebarAdmin .nav-link:hover {
+    background-color: #e9ecef;
+    border-radius: 5px;
+}
+.sidebarAdmin i{
+    font-size: 1.5rem;
+    margin-left: 15px;
+}
+.admin-content {
+    flex: 1;
+    padding: 2rem;
+    background-color: #f9f9f9;
+}
+
+.ContainerCardsDashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+.cardDashboard {
+    background-color: white;
+    padding: 0.8rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    font-weight: bold;
+    font-size: 1rem;
+}
+.cd1{
+    background-color: rgb(247, 255, 227);
+}
+.cd2{
+    background-color: rgb(227, 244, 255);
+}
+.cd3{
+    background-color: rgb(255, 243, 227);
+}
+.cd4{
+    background-color: rgb(250, 227, 255);
+}
+
 .bodyAdministrator{
     height: 1200px;
 }
@@ -989,8 +1074,11 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 .formularioAdministracion{
     display: flex;
 }
-
-body .tableAdministracion{
+.tableAdminProductCont{
+  max-height: 500px;
+  overflow-y: auto;    
+}
+.tableAdministracion{
     width: 100%;
     table-layout: fixed;
 }

@@ -41,7 +41,7 @@ $tallas = !empty($productoSeleccionado['tallas']) ? json_decode($productoSelecci
     <aside class="ratswsp">
         <a href="https://wa.me/+51925850399" target="_blank">
             <div id="iconratswsp"><span class="icon-whatsapp"></span></div>
-            <div id="ratswsptexto">Realiza tu pedido con nosotros</div>
+            <div id="ratswsptexto">¿Necesitas ayuda?</div>
         </a>
     </aside>
 

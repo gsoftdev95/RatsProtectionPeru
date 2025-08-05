@@ -79,7 +79,7 @@ $etiquetas_tipo = [
                                     <li class="dropdown-header fw-bold"><?= $etiquetas_tipo[$tipoid] ?></li>
                                     <?php foreach ($tipos[$tipoid] as $producto): ?>
                                         <li>
-                                            <a class="dropdown-item" href="./detalleProducto.php?id=<?= $producto['id'] ?>">
+                                            <a class="dropdown-item" href="./productoCategoria.php?id=<?= $producto['id'] ?>">
                                                 <?= htmlspecialchars($producto['nombre']) ?>
                                             </a>
                                         </li>

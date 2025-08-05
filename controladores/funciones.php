@@ -295,92 +295,33 @@ function enviarCorreo($usuario) {
 }
 
 
-/*************************************************** */
 
-/*
-CREATE TABLE calificaciones (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    producto_id INT NOT NULL,
-    usuario_id INT NOT NULL,
-    calificacion DECIMAL(2, 1) NOT NULL,
-    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (producto_id) REFERENCES productos(id),
-    FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
-);
 
-CREATE TABLE calificaciones (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    producto_id INT NOT NULL,
-    usuario_id INT NOT NULL,
-    calificacion DECIMAL(2, 1) NOT NULL,
-    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (producto_id) REFERENCES productos(id),
-    FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
-);
-
-// Función para guardar la calificación del usuario
-function guardarCalificacion($bd, $producto_id, $usuario_id, $calificacion) {
-    // Armar la consulta
-    $sql = "INSERT INTO calificaciones (producto_id, usuario_id, calificacion) VALUES (:producto_id, :usuario_id, :calificacion)";
-    
-    // Preparar la consulta
-    $query = $bd->prepare($sql);
-    $query->bindValue(':producto_id', $producto_id);
-    $query->bindValue(':usuario_id', $usuario_id);
-    $query->bindValue(':calificacion', $calificacion);
-    
-    // Ejecutar la consulta
-    if ($query->execute()) {
-        return true; // Calificación guardada con éxito
-    } else {
-        return false; // Error al guardar la calificación
-    }
+// Funcion para contar cliente
+function contarClientes($bd, $tabla){
+    $sql = "select count(*) from  $tabla where perfil = 1";
+    $stmt = $bd->query($sql);
+    return $stmt->fetchcolumn();
 }
 
-/*
-formulario de calificacion
-<form method="POST" action="guardar_calificacion.php">
-    <input type="hidden" name="producto_id" value="1"> <!-- Cambia el valor según el producto -->
-    <label for="calificacion">Calificación:</label>
-    <select name="calificacion" id="calificacion" required>
-        <option value="5">5</option>
-        <option value="4.5">4.5</option>
-        <option value="4">4</option>
-        <option value="3.5">3.5</option>
-        <option value="3">3</option>
-        <option value="2.5">2.5</option>
-        <option value="2">2</option>
-        <option value="1.5">1.5</option>
-        <option value="1">1</option>
-        <option value="0.5">0.5</option>
-    </select>
-    <button type="submit">Calificar</button>
-</form>
-
-
-<?php
-session_start();
-require_once('tu_archivo_de_conexion.php'); // Asegúrate de incluir tu archivo de conexión
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $producto_id = $_POST['producto_id'];
-    $usuario_id = $_SESSION['usuario_id']; // Asegúrate de tener el ID del usuario en la sesión
-    $calificacion = $_POST['calificacion'];
-
-    // Llamar a la función para guardar la calificación
-    if (guardarCalificacion($bd, $producto_id, $usuario_id, $calificacion)) {
-        echo "Calificación guardada con éxito.";
-    } else {
-        echo "Error al guardar la calificación.";
-    }
+// Funcion para contar productos
+function contarProductos($bd, $tabla){
+    $sql = "select count(id) from $tabla";
+    $stmt = $bd->query($sql);
+    return $stmt->fetchcolumn();
 }
-?>
-*/
-
-
-
-
-
+// Funcion para contar productos
+function contarTeam($bd, $tabla){
+    $sql = "select count(idteamrats) from $tabla";
+    $stmt = $bd->query($sql);
+    return $stmt->fetchcolumn();
+}
+// Funcion para contar productos
+function contarEventos($bd, $tabla){
+    $sql = "select count(idevento) from $tabla";
+    $stmt = $bd->query($sql);
+    return $stmt->fetchcolumn();
+}
 
 
 
@@ -651,8 +592,6 @@ function obtenerTeam($bd,$tabla) {
     $query->execute();
     return $query->fetchAll(PDO::FETCH_ASSOC);
 }
-
-
 function buscarTeam($bd,$tabla,$busqueda,$tipoBusqueda){
     //Armar la consulta
     $sql = "select * from $tabla where  $tipoBusqueda like :busqueda";

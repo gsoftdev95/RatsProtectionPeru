@@ -8,9 +8,9 @@
     require_once('controladores/controlAcceso.php');
 
     if($_GET &&  trim($_GET['busqueda']) != ''){
-        $producto = buscarProductos($bd, 'productos', $_GET['busqueda'], $_GET['tipoBusqueda']);
+        $productoAdmin = buscarProductos($bd, 'productos', $_GET['busqueda'], $_GET['tipoBusqueda']);
     }else{
-        $producto = listarProductos($bd, 'productos');
+        $productoAdmin = listarProductos($bd, 'productos');
     }    
 ?>
 
@@ -60,18 +60,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($producto as $id => $productos) :?>
+                    <?php foreach ($productoAdmin as $id => $productoAdmins) :?>
                         <tr>
-                            <td class="text-center text-primary-emphasis"><?= $productos['id'] ?></td>
-                            <td class="text-primary-emphasis"><?= $productos['nombreProducto']?></td> <!--"nombreProducto" es la columna de la BD-->
-                            <td class="text-center text-primary-emphasis"><?= $productos['categoriaProducto']?></td>
-                            <td class="text-center text-primary-emphasis"><?= $productos['precio']?></td>
+                            <td class="text-center text-primary-emphasis"><?= $productoAdmins['id'] ?></td>
+                            <td class="text-primary-emphasis"><?= $productoAdmins['nombreProducto']?></td> <!--"nombreProducto" es la columna de la BD-->
+                            <td class="text-center text-primary-emphasis"><?= $productoAdmins['categoriaProducto']?></td>
+                            <td class="text-center text-primary-emphasis"><?= $productoAdmins['precio']?></td>
                             <!-- Envío de ID por Query String -->
-                            <td class="text-center text-primary-emphasis"><a href="detalleProducto.php?id=<?= $productos['id'];?>"><span class="icon-eye"></span></a></td>
+                            <td class="text-center text-primary-emphasis"><a href="detalleProducto.php?id=<?= $productoAdmins['id'];?>"><span class="icon-eye"></span></a></td>
                             <!-- Envío de ID por Query String -->
-                            <td class="text-center text-primary-emphasis"><a href="modificarProducto.php?id=<?= $productos['id'];?>"><span class="icon-pencil"></span></a></td>
+                            <td class="text-center text-primary-emphasis"><a href="modificarProducto.php?id=<?= $productoAdmins['id'];?>"><span class="icon-pencil"></span></a></td>
                             <!-- Envío de ID por Query String -->
-                            <td class="text-center text-primary-emphasis"><a href="eliminarProducto.php?id=<?= $productos['id'];?>"><span class="icon-bin2"></span></a></td>
+                            <td class="text-center text-primary-emphasis"><a href="eliminarProducto.php?id=<?= $productoAdmins['id'];?>"><span class="icon-bin2"></span></a></td>
                         </tr>
                     <?php endforeach ?>
 
