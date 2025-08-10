@@ -2,13 +2,12 @@
 require_once('helpers/dd.php');
 require_once('controladores/funciones.php');
 require_once('partials/conexionBD.php');
-
-//controll de accesso por roles
 require_once('controladores/controlAcceso.php');
+
 $totalClientes = contarClientes($bd,'usuariorats');
-$totalProductos = contarProductos($bd,'Productos');
+$totalProductos = contarProductos($bd,'productos');
 $totalTeam = contarTeam($bd,'teamrats');
-$Totalteam = contarteam($bd,'teamrats');
+$TotalEventos = contarEventos($bd,'eventosrats');
 
 
 if(isset($_GET['busquedaProducto']) && trim($_GET['busquedaProducto']) != ''){
@@ -41,6 +40,8 @@ if(isset($_GET['busquedaEvento']) && trim($_GET['busquedaEvento']) != ''){
     $EventoAdmin = listarEvento($bd, 'eventosrats');
 }
 $busquedaActivaEvento = isset($_GET['busquedaEvento']) && trim($_GET['busquedaEvento']) !== '';
+
+
 ?>
 
 <!doctype html>
@@ -76,8 +77,8 @@ $busquedaActivaEvento = isset($_GET['busquedaEvento']) && trim($_GET['busquedaEv
                     <p class="m-0" style="font-size:3rem"><?= $totalTeam ?></p>
                     </div>
                     <div class="cardDashboard cd4">
-                    <p class="m-0">team:</p>
-                    <p class="m-0" style="font-size:3rem"><?= $Totalteam ?></p>
+                    <p class="m-0">Eventos:</p>
+                    <p class="m-0" style="font-size:3rem"><?= $TotalEventos ?></p>
                     </div>
                 </div>
             </section>
@@ -228,7 +229,7 @@ $busquedaActivaEvento = isset($_GET['busquedaEvento']) && trim($_GET['busquedaEv
                                 </select>
                                 <button class="btn btn-success rounded-0 m-1" type="submit">Buscar</button>
                             </form>
-                            <div class="mx-2 mt-3 "><a class="text-decoration-none text-dark" href="AddTeamRats.php"><span class="icon-plus"></span> Agregar miembro</a></div> 
+                            <div class="mx-2 mt-3 "><a class="text-decoration-none text-dark" href="addTeamRats.php"><span class="icon-plus"></span> Agregar miembro</a></div> 
                             
                         </div>
                         
@@ -287,7 +288,7 @@ $busquedaActivaEvento = isset($_GET['busquedaEvento']) && trim($_GET['busquedaEv
                                 </select>                                
                                 <button class="btn btn-success rounded-0 m-1" type="submit">Buscar</button>
                             </form>
-                            <div class="mx-2 mt-3 "><a class="text-decoration-none text-dark" href="AddEvento.php"><span class="icon-plus"></span> Agregar evento</a></div> 
+                            <div class="mx-2 mt-3 "><a class="text-decoration-none text-dark" href="addEvento.php"><span class="icon-plus"></span> Agregar evento</a></div> 
                             
                         </div>
                         
@@ -321,6 +322,17 @@ $busquedaActivaEvento = isset($_GET['busquedaEvento']) && trim($_GET['busquedaEv
                         </section>
                     </section>              
                 </section>
+            </section>
+
+            <hr>
+
+            <section class="estadisticas">
+                <h2>Estadisticas</h2>
+                <p>estadisticas de la pagina</p>
+                <!-- Google Tag Manager (noscript) -->
+                <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NRFLP22S"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+                <!-- End Google Tag Manager (noscript) -->
             </section>
         </section>
     </main>

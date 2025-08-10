@@ -3,6 +3,8 @@
     require_once('controladores/funciones.php');
     require_once('partials/conexionBD.php');
   //Middleware
+
+
 ?>
 
 <!DOCTYPE html>

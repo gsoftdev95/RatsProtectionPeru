@@ -50,7 +50,7 @@ $etiquetas_tipo = [
         <?php if(isset($_SESSION['nombre'])):?>            
             <?php if($_SESSION['perfil']== 9):?>
             <div class="li_enc1 nav-item">
-                <a class="enc1Admin nav-link" href="administrar.php">Administrar</a>
+                <a class="enc1Admin nav-link" href="./administrar.php">Administrar</a>
             </div>
             <?php endif;?>
         <?php endif;?> 

@@ -29,3 +29,14 @@
 <link rel="prefetch" href="./productos.php?categoria=Eventos">
 
 
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DR1SDHCJKZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DR1SDHCJKZ');
+</script>
+
+
