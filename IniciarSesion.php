@@ -49,14 +49,14 @@ if ($_POST) {
         <section class="row container-fluid m-0 p-0">
             <article class="col-12 m-0 p-0">
                 <h2 class="bg-black titlelogin text-white text-center pt-5 container-fluid m-0">Iniciar Sesión</h2>
-                <h4 class="text-center ">Introduzca su correo y contraseña.</h4>
+                <h4 class="text-center mt-5">Introduzca su correo y contraseña.</h4>
             </article>
         </section>
         <section class="formlogin pt-15">
             <div class="container">
                 <div class="row">
                     <div class="col-8 mx-auto  pt-2 ">
-                        <div class="signup-form">
+                        <div class="signup-form containerFormLogin">
                             <?php if (isset($errores)) : ?>
                                 <ul>
                                     <?php foreach ($errores as $key => $error) : ?>
@@ -66,16 +66,20 @@ if ($_POST) {
                             <?php endif; ?>
                             <form action="" method="POST">
                                 <div class="form-group">
-                                    <input type="email" class="form-control mt-2" name="correo" placeholder="Email" value="<?= isset($correo)? $correo : ''?>">
+                                    <input type="email" class="form-control" name="correo" placeholder="Email" value="<?= isset($correo)? $correo : ''?>">
                                 </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control mt-2" name="password" placeholder="Contraseña">
+                                <div class="form-group containerpassword">
+                                    <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña" require>
+                                    <button type="button" id="togglePassword" class="botonEyes">
+                                        <i class="bi bi-eye m-0"></i>
+                                    </button>  
                                 </div>
-                                <div class="form-group">
-                                    <input type="checkbox" name="recordarme"><label class="checkbox-inline mt-2">Recordarme</label>
+                                <div class="form-group containerRecordarme">
+                                    <input type="checkbox" name="recordarme" id="recordarme">
+                                    <label class="ms-1" for="recordarme">Recordarme</label>
                                 </div>
-                                <div class="form-group ">
-                                    <button type="submit" class="btn btn btn-dark mt-2 rounded-0" style="font-family: Agency FB;">Ingresar</button>
+                                <div class="form-group containerInto">
+                                    <button type="submit" class="btn btn btn-dark rounded-0" style="font-family: Agency FB;">Ingresar</button>
                                 </div>
                             </form>
 
@@ -90,11 +94,13 @@ if ($_POST) {
     </section>    
     
 
-    
-
-
     <footer>
         <?php include_once('./partials/footer.php')?>
     </footer>
+
+
+
+    <!--visulizar contraseña-->
+    <script src="./js/viewPassword.js"></script>
 </body>
 </html>

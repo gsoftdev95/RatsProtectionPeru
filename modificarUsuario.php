@@ -33,28 +33,38 @@
         <?php include_once('./partials/navBar.php')?>
     </header>
     
-    <div class="container-fluid">        
-        <section class="row">
-            <h2 class="bg-primary-subtle text-primary-emphasis text-center py-5">Actualización de datos del usuario</h2>            
-        </section>
-        <section class=" col-6 offset-3">            
-            <form action="" method="POST">
-                <div class="form-group">
-                    <label for="id">ID</label>
-                    <input type="text" class="form-control" name="id" value="<?= $usuario['id'];?>" readonly>
-                    <label for="first_name">Nombre</label>
-                    <input type="text" class="form-control" name="nombre" value="<?= $usuario['nombre'];?>">
-                    <label for="last_name">Apellido</label>
-                    <input type="text" class="form-control" name="apellidos" value="<?= $usuario['apellidos'];?>">
-                    <label for="email">Email</label>
-                    <input type="text" class="form-control" name="correo" value="<?= $usuario['correo'];?>">
-                    <br>
-                    <button type="submit" class="btn btn-success rounded-0">Actualizar</button>
-                    <a href="administrarUsuario.php" class="btn btn-secondary rounded-0">Volver al administrador</a>                       
-                </div>
-            </form>
-        </section>            
-    </div>
+    <main class="mainAdmin">
+        <!-- Sidebar -->
+        <?php include_once('./partials/asideAdmin.php')?>
+
+        <div class="container-fluid">        
+            <section class="row">
+                <h2 class="bg-primary-subtle text-primary-emphasis text-center py-5">Actualización de datos del usuario</h2>            
+            </section>
+            <section class=" col-6 offset-3">            
+                <form action="" method="POST">
+                    <div class="form-group">
+                        <label for="id">ID</label>
+                        <input type="text" class="form-control" name="id" value="<?= $usuario['id'];?>" readonly>
+                        <label for="first_name">Nombre</label>
+                        <input type="text" class="form-control" name="nombre" value="<?= $usuario['nombre'];?>">
+                        <label for="last_name">Apellido</label>
+                        <input type="text" class="form-control" name="apellidos" value="<?= $usuario['apellidos'];?>">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" name="correo" value="<?= $usuario['correo'];?>">
+                        <br>
+                        <button type="submit" class="btn btn-success rounded-0">Actualizar</button>
+                        <a href="administrar.php" class="btn btn-secondary rounded-0">Volver al administrador</a>                       
+                    </div>
+                </form>
+            </section>            
+        </div>
+    </main>
+
+
+    <footer>
+        <?php include_once('./partials/footer.php')?>
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

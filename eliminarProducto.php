@@ -31,28 +31,34 @@
         <?php include_once('./partials/navBar.php')?>
     </header>
 
-    <div class="container-fluid">
-        <section class="col-12 container-fluid m-0 p-0">
-            <h2 class="bg-primary-subtle text-primary-emphasis text-center py-5">Eliminar producto</h2>            
-        </section>
-        <section class=" col-6 offset-3">
-            
-            <form action="" method="POST">
-                <div class="form-group">
-                    
-                    <label for="id">ID</label>
-                    <input type="text" class="form-control" name="id" value="<?= $productos['id'];?>" readonly>
-                    <label for="nombreProducto">Nombre del producto</label>
-                    <input type="text" class="form-control" name="nombreProducto" value="<?= $productos['nombreProducto'];?>">
-                    <label for="categoriaProducto">Categoria del producto</label>
-                    <input type="text" class="form-control" name="categoriaProducto" value="<?= $productos['categoriaProducto'];?>">
-                    <br>
-                    <button type="submit" class="btn btn-danger rounded-0">Eliminar</button>
-                    <a href="administrarProductos.php" class="btn btn-secondary rounded-0">Volver al administrador</a>                       
-                </div>
-            </form>
-        </section>            
-    </div>
+    <main class="mainAdmin">
+        <!-- Sidebar -->
+        <?php include_once('./partials/asideAdmin.php')?>
+
+        <div class="container-fluid m-0 p-0">
+            <section class="col-12 container-fluid m-0 p-0">
+                <h2 class="bg-primary-subtle text-primary-emphasis text-center py-5">Eliminar producto</h2>            
+            </section>
+            <section class=" col-6 offset-3">
+                
+                <form action="" method="POST">
+                    <div class="form-group">
+                        
+                        <label for="id">ID</label>
+                        <input type="text" class="form-control" name="id" value="<?= $productos['id'];?>" readonly>
+                        <label for="nombreProducto">Nombre del producto</label>
+                        <input type="text" class="form-control" name="nombreProducto" value="<?= $productos['nombreProducto'];?>">
+                        <label for="categoriaProducto">Categoria del producto</label>
+                        <input type="text" class="form-control" name="categoriaProducto" value="<?= $productos['categoriaProducto'];?>">
+                        <br>
+                        <button type="submit" class="btn btn-danger rounded-0">Eliminar</button>
+                        <a href="administrar.php" class="btn btn-secondary rounded-0">Volver al administrador</a>                       
+                    </div>
+                </form>
+            </section>            
+        </div>
+
+    </main>
 
     <script src="./js/lightbox-plus-jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

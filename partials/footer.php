@@ -1,25 +1,33 @@
 <section class="footerInner">
     <section class="footer1">
-        <article class="p1"><b>SOBRE NOSOTROS</b>
-            <div class="t1"><a href="./QuienesSomos.php">¿Quiénes somos?</a></div>
-            <div class="t1"><a href="./Vision.php">Visión</a></div>
-            <div class="t1"><a href="./Misión.php">Misión</a></div>
-        </article>
-        <article class="p1"><b>DISTRIBUIDORES OFICIALES</b>
-            <div class="t1"><a href="https://allcrewbmx.shop/product-category/bmx-bikes/" target="_blank">All Crew Bikes</a></div>                
-            <div class="t1"><a href="https://www.facebook.com/OHC.BIKER/" target="_blank">OHC BIKE PERU</a></div>
-            <div class="t1"> <a href="https://bikman.pe/" target="_blank">BIKMAM  bicicletas</a></div>
-        </article>
-        <article class="p1"><b>APOYO</b>
-            <div class="t1">Centro de ayuda</div>
-            <div class="t1">Garantía</div>
-            <div class="t1">Devoluciones</div>
-        </article>
-        <article class="p1"><b></b>
-            <div class="t1"></div>
-            <div class="t1"></div>
-            <div class="t1"></div>
-        </article>
+        <div>
+            <article class="p1"><b>SOBRE NOSOTROS</b>
+                <div class="t1"><a href="./QuienesSomos.php">¿Quiénes somos?</a></div>
+                <div class="t1"><a href="./Vision.php">Visión</a></div>
+                <div class="t1"><a href="./Misión.php">Misión</a></div>
+            </article>
+            <article class="p1"><b>DISTRIBUIDORES OFICIALES</b>
+                <div class="t1"><a href="https://allcrewbmx.shop/product-category/bmx-bikes/" target="_blank">All Crew Bikes</a></div>                
+                <div class="t1"><a href="https://www.facebook.com/OHC.BIKER/" target="_blank">OHC BIKE PERU</a></div>
+                <div class="t1"> <a href="https://bikman.pe/" target="_blank">BIKMAM  bicicletas</a></div>
+            </article>
+            <article class="p1"><b>Atención al cliente</b>
+                <div class="t1"><a href="./centroAyuda.php">Centro de ayuda</a></div>
+                <div class="t1"><a href="./garantia.php">Garantía</a></div>
+                <div class="t1"><a href="./devoluciones.php">Devoluciones</a></div>
+            </article>
+        </div>
+        <div>
+            <article class="p1"><b></b>
+                <a href="./libroReclamaciones.php">
+                        <img src="./imagenes/libroRec2.png" 
+                            alt="Libro de Reclamaciones" 
+                            style="max-width:120px; margin-top:8px;">
+                    </a>
+            </article>
+        </div>
+        
+        
     </section>
 
     <section id="logof">

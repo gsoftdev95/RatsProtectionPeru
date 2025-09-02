@@ -26,28 +26,34 @@
         <?php include_once('./partials/navBar.php')?>
     </header>
     
-    <div class="container-fluid m-0 p-0">
-        <section class="col-12 container-fluid m-0 p-0">
-            <h2 class="bg-primary-subtle text-primary-emphasis text-center py-5">Datos del deportista</h2>
-        </section>
-        <section class="row container-fluid m-0 p-0"> 
-            <div><a href="administrarDeportistas.php" class="btn btn-secondary rounded-0 m-2 w-5">Volver</a></div>         
-            <article class="col-4 offset-2 pt-4 w-50">                
-                <h4>ID: <?= $team['idteamrats'];?> </h4> 
-                <br>           
-                <h4>Nombre: <?= $team['nombre'];?></h4>    
-                <br>        
-                <h4>Apellido: <?= $team['apellido'];?></h4>
-                <br>
-                <figure> 
-                    <img class="w-50" src="./imgRats/Team/<?=$team['imgteamrats'] ?>" alt="<?= $team['nombre'];?>" > 
-                </figure>                
-            </article>
-            <div><a href="administrarDeportistas.php" class="btn btn-secondary rounded-0 m-2 w-5">Volver</a></div>         
-        </section>
-        
-             
-    </div>
+    <main class="mainAdmin">
+        <!-- Sidebar -->
+        <?php include_once('./partials/asideAdmin.php')?>
+
+        <div class="container-fluid m-0 p-0">
+            <section class="col-12 container-fluid m-0 p-0">
+                <h2 class="bg-primary-subtle text-primary-emphasis text-center py-5">Datos del deportista</h2>
+            </section>
+            <section class="row container-fluid m-0 p-0"> 
+                <div><a href="administrar.php" class="btn btn-secondary rounded-0 m-2 w-5">Volver</a></div>         
+                <article class="col-4 offset-2 pt-4 w-50">                
+                    <h4>ID: <?= $team['idteamrats'];?> </h4> 
+                    <br>           
+                    <h4>Nombre: <?= $team['nombre'];?></h4>    
+                    <br>        
+                    <h4>Apellido: <?= $team['apellido'];?></h4>
+                    <br>
+                    <figure> 
+                        <img class="w-50" src="./imgRats/Team/<?=$team['imgteamrats'] ?>" alt="<?= $team['nombre'];?>" > 
+                    </figure>                
+                </article>
+                <div><a href="administrar.php" class="btn btn-secondary rounded-0 m-2 w-5">Volver</a></div>         
+            </section>
+        </div>
+    </main>
+
+
+    
 
     <footer>
         <?php include_once('./partials/footer.php')?>

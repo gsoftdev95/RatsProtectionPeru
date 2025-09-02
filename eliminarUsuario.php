@@ -45,29 +45,37 @@
         <?php include_once('./partials/navBar.php')?>
     </header>
     
-    <div class="container-fluid">
-        <section class="col-12 container-fluid m-0 p-0">
-            <h2 class="bg-primary-subtle text-primary-emphasis text-center py-5">Eliminar usuario</h2>            
-        </section>
-        <section class=" col-6 offset-3">
-            
-            <form action="" method="POST">
-                <div class="form-group">                    
-                    <label for="id">ID</label>
-                    <input type="text" class="form-control" name="id" value="<?= $usuario['id'];?>" readonly>
-                    <label for="first_name">Nombre</label>
-                    <input type="text" class="form-control" name="nombre" value="<?= $usuario['nombre'];?>" readonly>
-                    <label for="last_name">Apellido</label>
-                    <input type="text" class="form-control" name="apellidos" value="<?= $usuario['apellidos'];?>" readonly>
-                    <label for="email">Email</label>
-                    <input type="text" class="form-control" name="correo" value="<?= $usuario['correo'];?>" readonly>
-                    <br>
-                    <button type="submit" class="btn btn-primary">Eliminar</button>
-                    <a href="administrar.php" class="btn btn-link">Volver al administrador</a>                    
-                </div>
-            </form>
-        </section>            
-    </div>
+    <main class="mainAdmin">
+        <!-- Sidebar -->
+        <?php include_once('./partials/asideAdmin.php')?>
+
+        <div class="container-fluid">
+            <section class="col-12 container-fluid m-0 p-0">
+                <h2 class="bg-primary-subtle text-primary-emphasis text-center py-5">Eliminar usuario</h2>            
+            </section>
+            <section class=" col-6 offset-3">
+                
+                <form action="" method="POST">
+                    <div class="form-group">                    
+                        <label for="id">ID</label>
+                        <input type="text" class="form-control" name="id" value="<?= $usuario['id'];?>" readonly>
+                        <label for="first_name">Nombre</label>
+                        <input type="text" class="form-control" name="nombre" value="<?= $usuario['nombre'];?>" readonly>
+                        <label for="last_name">Apellido</label>
+                        <input type="text" class="form-control" name="apellidos" value="<?= $usuario['apellidos'];?>" readonly>
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" name="correo" value="<?= $usuario['correo'];?>" readonly>
+                        <br>
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                        <a href="administrar.php" class="btn btn-secondary">Volver al administrador</a>                    
+                    </div>
+                </form>
+            </section>            
+        </div>
+    </main>
+
+
+    
     
     
         

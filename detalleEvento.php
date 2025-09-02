@@ -20,6 +20,8 @@
         <?php include_once('./partials/navBar.php')?>
     </header>
     
+    <main></main>
+    
     <div class="container-fluid m-0 p-0">
         <section class="col-12 container-fluid m-0 p-0">
             <h2 class="bg-primary-subtle text-primary-emphasis text-center py-5">Datos del evento</h2>            
@@ -36,8 +38,7 @@
                 </figure>
             </article> 
             <div><a href="administrarEventos.php" class="btn btn-secondary rounded-0 m-2 w-5">Volver</a></div> 
-        </section>        
-             
+        </section>   
     </div>
 
     <footer>

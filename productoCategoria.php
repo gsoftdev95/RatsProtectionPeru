@@ -100,7 +100,7 @@ $tallas = !empty($productoSeleccionado['tallas']) ? json_decode($productoSelecci
                         <li><img src="./iconos/externos/world.png" alt="" >Envíos a nivel nacional e internacional</li>
                         <li><span class="icon-checkmark"></span>¿No te queda bien? Cambiamos tu producto por otra talla.</li>
                     </ul>
-                    <a href="https://wa.me/+51925850399" class="text-decoration-none">
+                    <a href="https://wa.me/+51925850399?text=Hola,%20me%20interesa%20el%20producto%20 <?= urlencode(strtolower($productoSeleccionado['nombreProducto'])) ?> %20de%20la%20categoría%20'<?= urlencode($productoSeleccionado['categoriaProducto']) ?>'.%20¿Podrías%20indicarme%20cómo%20puedo%20hacer%20la%20compra%20y%20el%20envío?%20" class="text-decoration-none" target="_blank">
                         <div class="bg-dark p-2 text-center m-auto"><u>Realizar pedido </u><span class="icon-cart"></span></div>
                     </a>
                 </section>               

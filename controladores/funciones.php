@@ -30,8 +30,7 @@ function conexion($host,$dbname,$user,$password){
     } catch (PDOException $error) {
         echo "Ha ocurrido un error en la conexión ". $error->getMessage();
         exit;
-    }
-    
+    }    
 }
 
 //Función para guardar los datos del usuario
@@ -128,7 +127,6 @@ function eliminarUsuario($bd,$tabla,$datos){
 function detalleUsuario($bd, $id, $table) {
     //Armado de la sentencia
     $sql = "select * from $table where id=$id";
-    //Ejecución de la sentencia
     $query = $bd->prepare($sql);
     $query->execute();
     //Lectura de los datos obtenidos en la sentencia como Array Asociativo
@@ -138,17 +136,69 @@ function detalleUsuario($bd, $id, $table) {
 }
 
 //Función para validar al usuario
-function validarUsuario($datos){
+// Función para validar datos de registro de usuario
+function validarUsuario($datos) {
+    // 1. Variables crudas
+    $nombreRaw    = isset($datos['nombre']) ? $datos['nombre'] : '';
+    $apellidosRaw = isset($datos['apellidos']) ? $datos['apellidos'] : '';
+    $correoRaw    = isset($datos['correo']) ? $datos['correo'] : '';
+    $passwordRaw  = isset($datos['password']) ? $datos['password'] : '';
+    $confirmRaw   = isset($datos['confirm_password']) ? $datos['confirm_password'] : '';
+    
     $errores = [];
-    $nombre = trim($datos['nombre']);
-    $apellidos = trim($datos['apellidos']);
-    if($nombre === ''){
-        $errores['nombre'] = 'El campo nombre no puede estar vacio';
-    }    
-    if(empty($apellidos)){
-        $errores['apellidos'] = 'El campo apellido no puede estar vacio';
+
+    // 2. Normalización
+    $nombre    = ucfirst(strtolower(trim($nombreRaw)));      // Primera letra mayúscula
+    $apellidos = ucwords(strtolower(trim($apellidosRaw)));   // Cada palabra con mayúscula
+    $correo    = strtolower(trim($correoRaw));               // Correos siempre en minúscula
+    $password  = trim($passwordRaw);
+    $confirm   = trim($confirmRaw);
+
+    // 3. Validaciones
+    // Nombre
+    if ($nombre === '') {
+        $errores['nombre'] = "El nombre es obligatorio.";
+    } elseif (!preg_match("/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/", $nombre)) {
+        $errores['nombre'] = "El nombre solo puede contener letras.";
     }
-    return $errores;
+
+    // Apellidos
+    if ($apellidos === '') {
+        $errores['apellidos'] = "El apellido es obligatorio.";
+    } elseif (!preg_match("/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/", $apellidos)) {
+        $errores['apellidos'] = "El apellido solo puede contener letras.";
+    }
+
+    // Correo
+    if ($correo === '') {
+        $errores['correo'] = "El correo es obligatorio.";
+    } elseif (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
+        $errores['correo'] = "El correo no es válido.";
+    }
+
+    // Password
+    if ($password === '') {
+        $errores['password'] = "La contraseña es obligatoria.";
+    } elseif (strlen($password) < 6) {
+        $errores['password'] = "La contraseña debe tener al menos 6 caracteres.";
+    }
+
+    // Confirmación
+    if ($confirm === '') {
+        $errores['confirm_password'] = "Debe confirmar la contraseña.";
+    } elseif ($password !== $confirm) {
+        $errores['confirm_password'] = "Las contraseñas no coinciden.";
+    }
+
+    // 4. Retorno (errores y valores normalizados)
+    return [
+        'errores' => $errores,
+        'valores' => [
+            'nombre'    => $nombre,
+            'apellidos' => $apellidos,
+            'correo'    => $correo
+        ]
+    ];
 }
 
 
@@ -322,7 +372,16 @@ function contarEventos($bd, $tabla){
     $stmt = $bd->query($sql);
     return $stmt->fetchcolumn();
 }
-
+function contarReclamosPendientes($bd, $tabla){
+    $sql = "select count(*) from $tabla WHERE estado = 'pendiente'";
+    $stmt = $bd->query($sql);
+    return $stmt->fetchcolumn();
+}
+function contarReclamosEnproceso($bd, $tabla){
+    $sql = "select count(*) from $tabla WHERE estado = 'en proceso'";
+    $stmt = $bd->query($sql);
+    return $stmt->fetchcolumn();
+}
 
 
 //PRODUCTO
@@ -868,4 +927,28 @@ function eliminarEvento($bd, $tabla, $datos) {
     } catch (Exception $e) {
         echo "<h2 style='text-align:center'>Error: " . $e->getMessage() . "</h2>";
     }
+}
+
+//RECLAMO//RECLAMO//RECLAMO//RECLAMO//RECLAMO//RECLAMO//RECLAMO
+//RECLAMO//RECLAMO//RECLAMO//RECLAMO//RECLAMO//RECLAMO
+//RECLAMO//RECLAMO//RECLAMO//RECLAMO//RECLAMOV
+//RECLAMO//RECLAMO//RECLAMO//RECLAMO//RECLAMO//RECLAMO
+//RECLAMO//RECLAMO//RECLAMO//RECLAMO//RECLAMO
+
+function listarReclamos($bd, $tabla) {
+    $sql = "select * from $tabla where estado != 'atendido' ";
+    $query = $bd->prepare($sql);
+    $query -> execute();
+    $reclamos = $query->fetchAll(PDO::FETCH_ASSOC);
+    return $reclamos;
+}
+
+function detalleReclamos($bd, $id, $table){
+    $sql = " select * from $table where id = :id";
+    $query = $bd -> prepare($sql);
+    $query->bindvalue(':id', $id, PDO::PARAM_INT);
+    $query->execute();
+
+    $reclamos = $query->fetch(PDO::FETCH_ASSOC);
+    return $reclamos;
 }

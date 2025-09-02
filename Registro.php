@@ -5,23 +5,34 @@ require_once('controladores/funciones.php');
 
 $errores = [];
 if ($_POST) {
-    $nombre = $_POST['nombre'];
-    $apellidos = $_POST['apellidos'];
-    $correo = $_POST['correo'];
-
     // Validación del usuario
-    $errores = validarUsuario($_POST, $_FILES);
+    $resultado = validarUsuario($_POST);
+    $errores = $resultado['errores'];
+
     if (count($errores) === 0) {
         // Conectar con la base de datos
         require_once('partials/conexionBD.php');
-        
-        // Guardar al usuario
-        guardarUsuario($bd, 'usuariorats', $_POST);
+
+        // Usamos los valores ya normalizados
+        $nombre    = $resultado['valores']['nombre'];
+        $apellidos = $resultado['valores']['apellidos'];
+        $correo    = $resultado['valores']['correo'];
+
+        // Guardar al usuario con datos normalizados
+        guardarUsuario($bd, 'usuariorats', [
+            'nombre'    => $nombre,
+            'apellidos' => $apellidos,
+            'correo'    => $correo,
+            'password'  => $_POST['password']
+        ]);
+
         enviarCorreo($_POST);
-        header('location: IniciarSesion.php');
-        exit(); // Asegúrate de usar exit después de header
+
+        header("location: IniciarSesion.php");
+        exit;
     }
 }
+
 ob_end_flush(); // Envía el contenido del búfer al navegador
 ?>
 
@@ -52,10 +63,17 @@ ob_end_flush(); // Envía el contenido del búfer al navegador
                             <?php if(count($errores)>0) :?>
                                 <ul class="alert alert-danger">
                                 <?php foreach ($errores as $key => $error) : ?>
-                                    <li><?= $error?></li>
+                                    <?php if (is_array($error)): ?>
+                                        <?php foreach ($error as $subError): ?>
+                                            <li><?= htmlspecialchars($subError) ?></li>
+                                        <?php endforeach; ?>
+                                    <?php else: ?>
+                                        <li><?= htmlspecialchars($error) ?></li>
+                                    <?php endif; ?>
                                 <?php endforeach;?>
-                            </ul>
+                                </ul>
                             <?php endif; ?>
+
                             
 
                             <form action="" method="POST" enctype="multipart/form-data" >

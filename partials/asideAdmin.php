@@ -26,6 +26,11 @@
             </a>
         </li>
         <li class="nav-item my-2">
+            <a class="nav-link px-2" href="./administrar.php#reclamos" title="Estadísticas">
+                <i class="bi bi-book"></i><span class="link-text">Reclamos</span>
+            </a>
+        </li>
+        <li class="nav-item my-2">
             <a class="nav-link px-2" href="./index.php" title="Volver">
                 <i class="bi bi-backspace-fill"></i><span class="link-text">Volver</span>
             </a>

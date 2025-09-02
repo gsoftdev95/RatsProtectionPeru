@@ -8,6 +8,8 @@ $totalClientes = contarClientes($bd,'usuariorats');
 $totalProductos = contarProductos($bd,'productos');
 $totalTeam = contarTeam($bd,'teamrats');
 $TotalEventos = contarEventos($bd,'eventosrats');
+$totalReclamosPendientes = contarReclamosPendientes($bd,'reclamos');
+$totalReclamosEnproceso = contarReclamosEnproceso($bd,'reclamos');
 
 
 if(isset($_GET['busquedaProducto']) && trim($_GET['busquedaProducto']) != ''){
@@ -42,6 +44,20 @@ if(isset($_GET['busquedaEvento']) && trim($_GET['busquedaEvento']) != ''){
 $busquedaActivaEvento = isset($_GET['busquedaEvento']) && trim($_GET['busquedaEvento']) !== '';
 
 
+$ReclamosAdmin = listarReclamos($bd,'reclamos');
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $id = $_POST['id'];
+    $estado = $_POST['estado'];
+
+    $stmt = $bd->prepare("UPDATE reclamos SET estado = ? WHERE id = ?");
+    $stmt->execute([$estado, $id]);
+
+    // Redirigir de nuevo a la administración
+    header("Location: administrar.php");
+    exit();
+}
+
 ?>
 
 <!doctype html>
@@ -65,20 +81,28 @@ $busquedaActivaEvento = isset($_GET['busquedaEvento']) && trim($_GET['busquedaEv
                 <h1>Dashboard</h1>
                 <div class="ContainerCardsDashboard">
                     <div class="cardDashboard cd1">
-                    <p class="m-0">Productos:</p>
-                    <p class="m-0" style="font-size:3rem"><?= $totalProductos ?></p>               
+                        <p class="m-0">Productos:</p>
+                        <p class="m-0" style="font-size:3rem"><?= $totalProductos ?></p>               
                     </div>
                     <div class="cardDashboard cd2">
-                    <p class="m-0">Clientes:</p>
-                    <p class="m-0" style="font-size:3rem"><?= $totalClientes ?></p>
+                        <p class="m-0">Clientes:</p>
+                        <p class="m-0" style="font-size:3rem"><?= $totalClientes ?></p>
                     </div>
                     <div class="cardDashboard cd3">
-                    <p class="m-0">Team:</p>
-                    <p class="m-0" style="font-size:3rem"><?= $totalTeam ?></p>
+                        <p class="m-0">Team:</p>
+                        <p class="m-0" style="font-size:3rem"><?= $totalTeam ?></p>
                     </div>
                     <div class="cardDashboard cd4">
-                    <p class="m-0">Eventos:</p>
-                    <p class="m-0" style="font-size:3rem"><?= $TotalEventos ?></p>
+                        <p class="m-0">Eventos:</p>
+                        <p class="m-0" style="font-size:3rem"><?= $TotalEventos ?></p>
+                    </div>
+                    <div class="cardDashboard cd5">
+                        <p class="m-0">Reclamos pendientes:</p>
+                        <p class="m-0" style="font-size:3rem"><?= $totalReclamosPendientes ?></p>
+                    </div>
+                    <div class="cardDashboard cd6">
+                        <p class="m-0">Reclamos Abiertos:</p>
+                        <p class="m-0" style="font-size:3rem"><?= $totalReclamosEnproceso ?></p>
                     </div>
                 </div>
             </section>
@@ -234,7 +258,7 @@ $busquedaActivaEvento = isset($_GET['busquedaEvento']) && trim($_GET['busquedaEv
                         </div>
                         
                         <section class="table-responsive-custom">
-                            <table class="tableAdministracion table table-striped-columns text-primary-emphasis containerfluid" style="">
+                            <table class="tableAdministracion table table-striped-columns text-primary-emphasis containerfluid">
                                 <thead>
                                     <tr>
                                         <th>Id</th>
@@ -314,6 +338,83 @@ $busquedaActivaEvento = isset($_GET['busquedaEvento']) && trim($_GET['busquedaEv
                                             <td><a href="modificarEvento.php?id=<?= $eventos['idevento'];?>"><span class="icon-pencil"></span></a></td>
                                             <!-- Envío de ID por Query String -->
                                             <td><a href="eliminarEvento.php?id=<?= $eventos['idevento'];?>"><span class="icon-bin2"></span></a></td>
+                                        </tr>
+                                    <?php endforeach ?>
+
+                                </tbody>
+                            </table>
+                        </section>
+                    </section>              
+                </section>
+            </section>
+
+            <hr>
+
+            <section id="reclamos">
+                <h2>Reclamos</h2>
+                <p>Lista de reclamos realizados por los consumidores.</p>
+
+                <section>
+                    Ver reclamos
+
+                    <button class="btn btn-link" data-bs-toggle="collapse" data-bs-target="#verReclamos" aria-expanded="false" aria-controls="verReclamos">
+                        <span id="flechaReclamos"><i class="bi bi-caret-down-fill"></i></span>
+                    </button>
+
+                    <section id="verReclamos" class="collapse <?= $busquedaActivaReclamos ? 'show' : '' ?>">
+                        <!--
+                        <div class="container-fluid d-flex justify-content-between">
+                            <form class="formularioAdministracion mt-3 mb-4" role="search" action="#" method="GET" >
+                                <input class="form-control me-2" type="search" placeholder="Buscador..." aria-label="Search" name="busquedaReclamos">
+                                <select name="tipoBusqueda" id="tipoBusqueda">
+                                    <option class="m-1 text-primary-emphasis" value="nombre">Por nombre</option>
+                                </select>                                
+                                <button class="btn btn-success rounded-0 m-1" type="submit">Buscar</button>
+                            </form>
+                            <div class="mx-2 mt-3 "><a class="text-decoration-none text-dark" href="addEvento.php"><span class="icon-plus"></span> Agregar evento</a></div> 
+                            
+                        </div>
+                        -->
+                        
+                        <section class="table-responsive-custom">
+                            <table class="tableAdministracion tablareclamos table table-striped-columns text-primary-emphasis containerfluid">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">Id</th>
+                                        <th class="text-center">Codigo de reclamo</th>
+                                        <th class="text-center">Nombre</th>
+                                        <th class="text-center">producto</th>
+                                        <th class="text-center">Tipo</th>
+                                        <th class="text-center">Fecha</th>
+                                        <th class="text-center">Estado</th>
+                                        <th class="text-center">Ver</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($ReclamosAdmin as $id => $reclamos) :?>
+                                        <tr>
+                                            <td class="text-primary-emphasis tableidreclamo"><?= $reclamos['id'] ?></td>
+                                            <td class="text-primary-emphasis"><?= $reclamos['codigo_reclamo']?></td>
+                                            <td class="text-primary-emphasis"><?= $reclamos['nombre']?></td>
+                                            <td class="text-primary-emphasis"><?= $reclamos['producto']?></td>
+                                            <td class="text-primary-emphasis"><?= $reclamos['tipo']?></td>
+                                            <td class="text-primary-emphasis"><?= $reclamos['fecha_reclamo']?></td>
+                                            
+                                            <td>
+                                                <form method="post" action="administrar.php" class="d-flex">
+                                                    <input type="hidden" name="id" value="<?= $reclamos['id'] ?>">
+                                                    <select name="estado" class="form-select form-select-sm me-2">
+                                                        <option value="Pendiente" <?= $reclamos['estado'] == 'Pendiente' ? 'selected' : '' ?>>Pendiente</option>
+                                                        <option value="En proceso" <?= $reclamos['estado'] == 'En Proceso' ? 'selected' : '' ?>>En proceso</option>
+                                                        <option value="Atendido" <?= $reclamos['estado'] == 'Atendido' ? 'selected' : '' ?>>Atendido</option>
+                                                    </select>
+                                                    <button type="submit" class="btn btn-outline-success btn-sm">
+                                                        <i class="bi bi-arrow-repeat"></i> <!-- ícono de actualizar -->
+                                                    </button>
+                                                </form>
+                                            </td>
+
+                                            <td class="acciones"><a href="adminReclamosView.php?id=<?= $reclamos['id'];?>"><span class="icon-eye"></span></a></td>
                                         </tr>
                                     <?php endforeach ?>
 
