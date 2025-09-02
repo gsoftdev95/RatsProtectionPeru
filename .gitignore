@@ -1,3 +1,5 @@
+# Archivos que no deben subirse
+partials/conexionBD.php
 controladores/controlAcceso.php
 controladores/functionConectionBD.php
 # Ignorar carpetas que no deben subirse
