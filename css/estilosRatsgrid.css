@@ -116,14 +116,18 @@ nav{
 }
 .log{
     width: auto;
-    padding: 0px 5px;
+    padding: 0px ;
     border-left: 1px solid #8e8e8e;
 }
 .logout{
     width: 110px;    
-    padding: 0px 0px 0px 7px;
+    padding: 0px 0px 0px 0px;
+    font-size: 1.5rem;
 }
-
+.logout a{
+    width:auto;
+    text-align: center;
+}
 .loginIco{
     margin: 0px 10px 0px 0px;
     padding: 0px 0px 0px 7px;
@@ -2281,4 +2285,33 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
     color: #25D366;
     width: 100%;
     padding: 5px;
+}
+
+/*
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+PERFIL CLIENTE
+PERFIL CLIENTE
+PERFIL CLIENTE
+PERFIL CLIENTE
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+*/
+.containerPerfil{
+    background-color: #f2f2f2;
+    padding: 20px 10px;
+}
+.perfilTitle{    
+    font-family: Agency FB;
+}
+.sectionPerfil{
+    background-color: white;
+    border: 1px solid #bebebe;
+    padding: 10px;
+    border-radius: 10px;
+}
+.sectionPerfil div h5{
+    font-family: Agency FB;
+    font-size: 1.5rem;
 }

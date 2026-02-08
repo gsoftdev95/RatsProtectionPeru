@@ -45,7 +45,7 @@ $etiquetas_tipo = [
     <?php if(isset($_SESSION['nombre'])) :?>
     <div class="my-2 my-lg-0 navbar-nav navwelcome">   
         
-        <div class="welcometext">!Hola, <?=$_SESSION['nombre'] ?>!</div>
+        <a href="./perfilCliente" class="welcometext">!Hola, <?=$_SESSION['nombre'] ?>!</a>
         
         <?php if(isset($_SESSION['nombre'])):?>            
             <?php if($_SESSION['perfil']== 9):?>
@@ -106,7 +106,7 @@ $etiquetas_tipo = [
         <div class="log" >
             <?php if(isset($_SESSION['nombre'])) :?> 
                 <div class="logout">                    
-                    <a class="nav-link" href="logout.php">Cerrar sesión</a>
+                    <a class="nav-link" href="logout.php"><i class="bi bi-box-arrow-right"></i></a>
                 </div>
                 <?php else :?>
                 

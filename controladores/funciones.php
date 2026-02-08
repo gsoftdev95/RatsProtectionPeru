@@ -230,6 +230,7 @@ function buscarPorEmail($bd,$tabla,$correo){
 
 //Función para guardar en sesión al usuario que está ingresando
 function seteoUsuario($usuario){
+    $_SESSION['id'] = $usuario['id'];
     $_SESSION['nombre'] = $usuario['nombre'];
     $_SESSION['apellido'] = $usuario['apellidos'];
     $_SESSION['correo'] = $usuario['correo'];
@@ -1006,3 +1007,40 @@ function detalleReclamos($bd, $id, $table){
     $reclamos = $query->fetch(PDO::FETCH_ASSOC);
     return $reclamos;
 }
+
+
+
+/************************* */
+/************************* */
+/*******perfil cliente**** */
+/************************* */
+/************************* */
+
+function obtenerUsuarioPorId($bd, $idUsuario) {
+    $stmt = $bd->prepare("SELECT id, nombre, apellidos, correo
+                            FROM usuariorats
+                            WHERE correo = :correo");
+    $stmt->bindValue(':correo', $idUsuario, PDO::PARAM_INT);
+    $stmt->execute();
+    $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $usuario ? $usuario : null;
+}
+/*
+function obtenerPedidosPorUsuario(PDO $bd, int $idUsuario): array {
+    $stmt = $bd->prepare("
+        SELECT 
+            p.id, 
+            p.fecha_pedido, 
+            e.estado, 
+            p.monto_total, 
+            e.descripcion_cliente
+        FROM pedidos p
+        JOIN estados_pedido e ON p.estado_id = e.id
+        WHERE p.usuario_id = :usuario_id 
+        ORDER BY p.fecha_pedido DESC
+    ");
+    $stmt->bindValue(':usuario_id', $idUsuario, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+*/
