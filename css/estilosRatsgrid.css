@@ -426,12 +426,23 @@ footer{
     align-items: center;
     margin-top: 0px;
     background-color: black;
+
+    @media (width<450px) {
+        height: auto;
+    }
 }
 .footerInner{
     max-width: 1500px;
     width: 100%;
     text-align: center;
     margin-top: 40px;
+
+    @media (width<450px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 }
 .footer1{
     color: white;
@@ -439,6 +450,13 @@ footer{
     justify-content: space-between;
     height: 200px;
     padding-left: 50px;
+
+    @media (width<450px) {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        padding-left: 0px;
+    }
 }
 .footer1>div{
     display: flex;
@@ -451,6 +469,9 @@ footer{
     font-size: 1rem;   
     font-weight: 400;
     font-family: Agency FB;
+}
+.p1 a img{
+    aspect-ratio: 1/1;
 }
 .footerInner a{
     text-decoration: none;    
@@ -468,10 +489,17 @@ footer{
     font-style: normal;
 }
 
-#logof{
+.footer2{
     background-color: black;
     display: flex;
     justify-content: space-between;
+
+    @media (width<450px) {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        width: 200px;
+    }
 }
 .iconosfooter{
     margin-left: 70px;
@@ -480,6 +508,16 @@ footer{
     width: 400px;
     height: 50px;
     background-color: black;
+
+    @media (width<450px) {        
+        margin: 0px auto;
+        display: flex;
+        width: 100%;
+        height: 50px;
+        background-color: black;
+        display: flex;
+        justify-content: center;
+    }
 }
 .iconosfooter div{
     font-size: 15px;
@@ -490,6 +528,14 @@ footer{
     height: 40px;
     line-height: 40px;
     border-radius: 50%;
+
+    @media (width<450px) {   
+        font-size: 12px;
+        margin-left: 10px;
+        width: 25px;
+        height: 25px;
+        line-height: 25px;
+    }
 }
 .iconosfooter a{
     text-decoration: none;
@@ -511,6 +557,13 @@ footer{
     height: 60px;
     margin-right: 50px;
     margin-bottom: 20px;
+
+    @media (width<450px) {   
+        margin-top: 20px;
+        margin-right: 5px;
+        width: 105.6px;
+        height: 31px;
+    }
 }
 
 .iconosfooter div:hover{
@@ -525,6 +578,10 @@ footer{
     margin: auto;
     background-color: black;
     color: white;
+
+    @media (width<450px) {   
+        font-size: 7px;
+    }
 }
 
 /*REGISTRO REGISTRO REGISTRO*/
@@ -579,6 +636,27 @@ footer{
     display: flex;
     height: 30px;
     line-height: 30px;
+    padding: 0px 5px;
+    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+
+    @media (width < 750px) {
+        flex-direction: column;
+        padding: 0px 2px;
+        height: auto;
+    }
+}
+.containerRecordarme div:nth-child(1){
+    display: flex;
+}
+.recuperarText{
+    color: rgb(45, 45, 182);
+    text-decoration: none;
+}
+.containerRecordarme div{
+    width: 100%;
+    height: 100%;
 }
 .containerRecordarme input{
     height: 100%;
@@ -1722,12 +1800,6 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
         font-size: 20px;
         font-family: Agency FB; 
     }
-
-    .footer1{
-        height: 150px;
-        margin-top: 20px;
-        padding-left: 10px;
-    }
     
     .p1{
         width:100px;
@@ -1741,35 +1813,6 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
         margin: auto;
         font-size: 10px;
     }
-    
-    .iconosfooter{
-        margin-top: 10px;
-        margin-left: 10px;
-        display: flex;
-        width: 400px;
-        height: 50px;
-        background-color: black;
-    }
-    .iconosfooter div{
-        font-size: 10px;
-        background-color: gray;
-        color: black;
-        margin-left: 10px;
-        width: 20px;
-        height: 20px;
-        line-height: 20px;
-        border-radius: 50%;
-    }  
-    .imagenfooter{
-        margin-top: 20px;
-        margin-right: 5px;
-        width: 105.6px;
-        height: 31px;
-    }
-    .footer-legal{
-        font-size: 7px;
-    }
-
 
     .cajaItemProducto {
         max-width: 200px;
@@ -2129,8 +2172,113 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 }   
 
 
+/*
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+MANTENIMIENTO
+MANTENIMIENTO
+MANTENIMIENTO
+MANTENIMIENTO
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+*/
+
+.containerMantenimiento{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.containerMantenimiento div{
+    width: 65%;
+    background-color: #e9ecef;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+    height: 80vh;
+}
+.containerMantenimiento h1{
+    font-size: 4rem !important;
+    font-family: Agency FB;
+    opacity: 0.5;
+}
+.containerMantenimiento p{
+    font-size: 2rem;  
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    opacity: 0.5;
+    text-align: center;
+
+}
 
 
+/*
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+RECUPERAR
+RECUPERAR
+RECUPERAR
+RECUPERAR
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+*/
+.recuperarContainer{
+    width: 100%;
+    height: 100vh;
+    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
+.recuperarInner{
+    background-color: white;
+    padding: 20px;
+    width: 500px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0px 0px 5px #bebebe;
 
-
+    @media (width < 450px) {
+        width: 90%;
+    }
+}
+.recuperarInner div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0px;
+}
+.recuperarInner div img{    
+    object-fit: contain;
+    width: 200px;
+}
+.recuperarInner h3{    
+    font-family: Agency FB;
+}
+.recuperarContainer form input{
+    border-radius: 0;
+}
+.recuperarContainer form button{
+    background-color: black;
+    color: white;
+    font-family: Agency FB;
+    width: 100%;
+    margin: 5px 0px 0px 0px;
+    border: none;
+    padding: 7px;
+    font-size: 1rem;
+}
+.mensaje-recuperacion{
+    background-color: #ccf1db;
+    color: #25D366;
+    width: 100%;
+    padding: 5px;
+}

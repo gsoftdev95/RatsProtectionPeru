@@ -75,8 +75,14 @@ if ($_POST) {
                                     </button>  
                                 </div>
                                 <div class="form-group containerRecordarme">
-                                    <input type="checkbox" name="recordarme" id="recordarme">
-                                    <label class="ms-1" for="recordarme">Recordarme</label>
+                                    <div>
+                                        <input type="checkbox" name="recordarme" id="recordarme">
+                                        <label class="ms-1" for="recordarme">Recordarme</label>
+                                    </div>
+                                    <div>
+                                        <a href="./recuperar_password.php" class="recuperarText">¿Has olvidado tu contraseña?</a>
+                                    </div>
+                                    
                                 </div>
                                 <div class="form-group containerInto">
                                     <button type="submit" class="btn btn btn-dark rounded-0" style="font-family: Agency FB;">Ingresar</button>

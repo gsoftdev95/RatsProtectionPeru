@@ -267,8 +267,6 @@ function acceso($bd, $tabla, $username) {
     return $usuario ? $usuario : null; // Retorna un array asociativo con los datos del usuario o null
 }
 
-
-
 //Función para controlar si el usuario está o no en sesión o cookie
 function controlIngreso(){
     // dd($_SESSION['nombre']);
@@ -291,7 +289,63 @@ function verificarAcceso($usuario, $perfilesPermitidos) {
     }
 }
 
+function crearTokenRecuperacion($bd, $usuario){
+    $token = bin2hex(random_bytes(32));
+    $expira = date('Y-m-d H:i:s', strtotime('+1 hour'));
 
+    $sql = "INSERT INTO password_resets (usuario_id, token, expira_en, usado)
+            VALUES (:usuario_id, :token, :expira, 0)";
+
+    $query = $bd->prepare($sql);
+    $query->execute([
+        ':usuario_id' => $usuario['id'],
+        ':token' => $token,
+        ':expira' => $expira
+    ]);
+
+    enviarCorreoRecuperacion($usuario['correo'], $token);
+}
+
+
+function enviarCorreoRecuperacion($correo, $token){
+    
+    require_once 'librerias/PHPMailer/src/PHPMailer.php';
+    require_once 'librerias/PHPMailer/src/SMTP.php';
+    require_once 'librerias/PHPMailer/src/Exception.php';
+
+    $mail = new PHPMailer(true);
+
+    try {
+        $mail->isSMTP();
+        $mail->Host       = 'smtp.gmail.com';
+        $mail->SMTPAuth   = true;
+        $mail->Username   = 'ratsprotection@gmail.com'; //'gesoftdev@gmail.com'
+        $mail->Password   = 'zpod sqtc eshe vmjz';  //'wncl tsrg bxkg fuic';
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port       = 587;
+
+        $mail->setFrom('no-reply@tudominio.com', 'Rats Protection');
+        $mail->addAddress($correo);
+
+        $link = "https://https://ratsprotectionperu.com/resetear.php?token=$token";
+        //$link = "http://localhost/Paginas_web/Rats_Protection/RatsProtection_v6_seguridad/resetear.php?token=$token";
+
+        $mail->isHTML(true);
+        $mail->Subject = 'Recuperación de contraseña';
+        $mail->Body    = "
+            <p>Sobrino!, ¿como te vas a olvidar tu contraseña?.</p>
+            <p>Te ayudare a restablecer tu contrasena.</p>
+            <p><a href='$link'>Haz clic aqui para cambiarla</a></p>
+            <p>Este enlace expira en 1 hora.</p>
+        ";
+
+        $mail->send();
+        return true;
+
+    } catch (Exception $e) {
+        return false;
+    }
+}
 
 
 

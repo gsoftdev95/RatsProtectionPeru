@@ -6,16 +6,29 @@
 </IfModule>
 
 <IfModule mod_rewrite.c>
-  RewriteEngine on
+RewriteEngine On
 
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_FILENAME}.php -f
-  RewriteRule ^(.*)$ $1.php
-  #RewriteRule ^([a-z]+)/?$ $1.php [NC]
+# ============================
+# REGLAS NORMALES
+# ============================
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php [L]
 
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_FILENAME}.html -f
-  RewriteRule ^(.*)$ $1.html
-  #RewriteRule ^([a-z]+)/?$ $1.html [NC]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
+# ============================
+# MODO MANTENIMIENTO
+# ============================
+#RewriteCond %{REQUEST_URI} !mantenimiento.php$
+#RewriteCond %{REQUEST_URI} !\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|ico)$ [NC]
+#RewriteCond %{REQUEST_URI} !css/
+#RewriteCond %{REQUEST_URI} !js/
+#RewriteRule ^.*$ mantenimiento.php [L]
+
 </IfModule>
 
+# Página personalizada para 503 (misma carpeta)
+ErrorDocument 503 mantenimiento.php

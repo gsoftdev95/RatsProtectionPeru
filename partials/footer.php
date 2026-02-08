@@ -18,19 +18,17 @@
             </article>
         </div>
         <div>
-            <article class="p1"><b></b>
+            <article class="p1">
                 <a href="./libroReclamaciones.php">
-                        <img src="./imagenes/libroRec2.png" 
-                            alt="Libro de Reclamaciones" 
-                            style="max-width:120px; margin-top:8px;">
-                    </a>
+                    <img src="./imagenes/libroRec2.png" 
+                        alt="Libro de Reclamaciones" 
+                        style="max-width:120px; margin-top:8px;">
+                </a>
             </article>
         </div>
-        
-        
     </section>
 
-    <section id="logof">
+    <section id="logof" class="footer2">
         <div class="iconosfooter">
             <a href="https://www.facebook.com/ratsprotection" target="_blank"><div><span class="icon-facebook"></span></div></a>
             <a href="https://www.instagram.com/ratsprotectionperu/" target="_blank"><div><span class="icon-instagram"></span></div></a>

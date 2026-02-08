@@ -3,10 +3,6 @@
     require_once('controladores/funciones.php');
     //Determina si el usuario está o no logueado (sesión o cookie)
 
-    if(!isset($_SESSION['correo'])){
-        header('Location: iniciarSesion.php');
-        exit;
-    }
 ?>
 
 
