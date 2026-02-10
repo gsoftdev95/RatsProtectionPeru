@@ -1267,7 +1267,23 @@ td a{
     width: 60px;
 }
 
+.formCrud label{
+    font-weight:bolder;
+}
+.formCrud input, .formCrud>select, .formCrud textarea, .formCrud>div{
+    margin-bottom: 20px;
+}
 
+.containerInfo{    
+    column-count:2;
+    column-gap:2em;
+    padding: 5px;
+}
+.containerInfoInner{    
+    width: 90%;
+    margin: 0px 0px;
+    padding: 10px;
+}
 /*
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX

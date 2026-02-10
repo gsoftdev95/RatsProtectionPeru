@@ -19,27 +19,33 @@
     <header>
         <?php include_once('./partials/navBar.php')?>
     </header>
+
+    <main class="mainAdmin">
+        <!-- Sidebar -->
+        <?php include_once('./partials/asideAdmin.php')?>
+
+        <div class="container-fluid">
+            <section class="row">
+                <h2 class="display-4 bg-primary-subtle text-primary-emphasis text-center py-5">Datos del evento</h2>            
+            </section>
+            <section class="row container-fluid m-0 p-0">
+                <div><a href="administrar.php" class="btn btn-secondary rounded-0 m-2 w-5">Volver</a></div>
+                <article class="col-4 offset-2 pt-4 w-50">
+                    <h4>ID: <?= $evento['idevento'];?> </h4> 
+                    <br>           
+                    <h4>Nombre: <?= $evento['nombreevento'];?></h4>    
+                    <br>
+                    <figure> 
+                        <img class="w-50" src="./imgRats/Eventos/<?=$evento['imgevento'] ?>" alt="<?= $evento['nombreevento'];?>" > 
+                    </figure>
+                </article> 
+                <div><a href="administrar.php" class="btn btn-secondary rounded-0 m-2 w-5">Volver</a></div> 
+            </section>   
+        </div>
+    </main>
     
-    <main></main>
     
-    <div class="container-fluid m-0 p-0">
-        <section class="col-12 container-fluid m-0 p-0">
-            <h2 class="bg-primary-subtle text-primary-emphasis text-center py-5">Datos del evento</h2>            
-        </section>
-        <section class="row container-fluid m-0 p-0">
-            <div><a href="administrarEventos.php" class="btn btn-secondary rounded-0 m-2 w-5">Volver</a></div>
-            <article class="col-4 offset-2 pt-4 w-50">
-                <h4>ID: <?= $evento['idevento'];?> </h4> 
-                <br>           
-                <h4>Nombre: <?= $evento['nombreevento'];?></h4>    
-                <br>
-                <figure> 
-                    <img class="w-50" src="./imgRats/Eventos/<?=$evento['imgevento'] ?>" alt="<?= $evento['nombreevento'];?>" > 
-                </figure>
-            </article> 
-            <div><a href="administrarEventos.php" class="btn btn-secondary rounded-0 m-2 w-5">Volver</a></div> 
-        </section>   
-    </div>
+    
 
     <footer>
         <?php include_once('./partials/footer.php')?>

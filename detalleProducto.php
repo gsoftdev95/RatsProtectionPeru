@@ -24,32 +24,48 @@
         <!-- Sidebar -->
         <?php include_once('./partials/asideAdmin.php')?>
 
-        <div class="container-fluid m-0 p-0">
-            <section class="col-12 container-fluid m-0 p-0">
-                <h2 class="bg-primary-subtle text-primary-emphasis text-center py-5">Datos del producto</h2>            
+        <div class="container-fluid">
+            <section class="row">
+                <h2 class="display-4 bg-primary-subtle text-primary-emphasis text-center py-5">Datos del producto</h2>            
             </section>
-            <div class="m-5 w-25"><a href="administrar.php" class="btn btn-secondary rounded-0 W-25">Volver</a></div>
-            <section class="row d-flex flex-row container-fluid m-0 p-0" >            
-                <div class="col-4 offset-2 pt-4 w-50 ">
-                    <h5 class="mt-3 mb-0 fw-bolder">ID:</h5>  <?= $productos['id'];?> 
-                    <br>           
-                    <h5 class="mt-3 mb-0 fw-bolder">Nombre del producto:</h5> <?= $productos['nombreProducto'];?>
-                    <br>        
-                    <h5 class="mt-3 mb-0 fw-bolder">Categoria del producto:</h5> <?= $productos['categoriaProducto'];?>
-                    <br>
-                    <h5 class="mt-3 mb-0 fw-bolder">Tipo del producto:</h5> <?= $productos['tipoid'];?>
-                    <br>
-                    <h5 class="mt-2 fw-bolder">Fecha de creacion:</h5> <?= $productos['fecha_creacion'];?>
-                    <br>
-                    <h5 class="mt-2 fw-bolder">Precio</h5> <?= $productos['precio'];?>
-                    <br>
-                    <h5 class="mt-2 fw-bolder">Tallas:</h5> <?= $productos['tallas'];?>
-                    <br> 
-                    <h5 class="mt-2 fw-bolder">Descripción:</h5> <?= $productos['descripcion'];?>
-                    <br>                
-                    <div class="pt-4">
-                        <h5 class="mt-2 fw-bolder">Especificaciones:</h5>
-                        <div>
+            
+            <section class="containerInfo" >            
+                <div class="containerInfoInner">
+                    <h5 class=" mb-0 fw-bolder">ID:</h5>  
+                    <p><?= $productos['id'];?> </p>
+                    <hr>
+                    
+                    <h5 class=" mb-0 fw-bolder">Nombre del producto:</h5>
+                    <?= $productos['nombreProducto'];?>
+                    <hr>   
+
+                    <h5 class=" mb-0 fw-bolder">Categoria del producto:</h5> 
+                    <?= $productos['categoriaProducto'];?>
+                    <hr>
+
+                    <h5 class=" mb-0 fw-bolder">Tipo del producto:</h5> 
+                    <?= $productos['tipoid'];?>
+                    <hr>
+
+                    <h5 class=" fw-bolder">Fecha de creacion:</h5> 
+                    <?= $productos['fecha_creacion'];?>
+                    <hr>
+
+                    <h5 class=" fw-bolder">Precio</h5> 
+                    <?= $productos['precio'];?>
+                    <hr>
+
+                    <h5 class=" fw-bolder">Tallas:</h5> 
+                    <?= $productos['tallas'];?>
+                    <hr> 
+
+                    <h5 class=" fw-bolder">Descripción:</h5> 
+                    <?= $productos['descripcion'];?>
+                    <hr> 
+
+                    <div class="">
+                        <h5 class=" fw-bolder">Especificaciones:</h5>
+                        <div class="ms-4">
                             <?php
                             if (!empty($productos['especificaciones'])) {
                                 // Decodificar JSON a array
@@ -67,24 +83,26 @@
                             }
                             ?>
                         </div>
-                    </div>               
-                </div>
-                <div class=" col-4 offset-2 pt-4 w-50">
-                    <h5 class="mt-2 fw-bolder">Imágenes del Producto:</h5>
-                    <div class="d-flex flex-wrap">
-                        <?php if (!empty($productos['imagenes']) && is_array($productos['imagenes'])): ?>
-                            <?php foreach ($productos['imagenes'] as $imagen): ?>
-                                <figure class="m-2">
-                                    <img class="w-100" src="./imgRats/Productos/<?= $imagen ?>" alt="<?= $productos['nombreProducto']; ?>" style="max-width: 150px; max-height: 150px;">
-                                </figure>
-                            <?php endforeach; ?>
-                        <?php else: ?>
-                            <p>No hay imágenes disponibles.</p>
-                        <?php endif; ?>
                     </div>
-                </div >                
+
+                    <div class="">
+                        <h5 class=" fw-bolder">Imágenes del Producto:</h5>
+                        <div class="d-flex flex-wrap">
+                            <?php if (!empty($productos['imagenes']) && is_array($productos['imagenes'])): ?>
+                                <?php foreach ($productos['imagenes'] as $imagen): ?>
+                                    <figure class="m-2">
+                                        <img class="w-100" src="./imgRats/Productos/<?= $imagen ?>" alt="<?= $productos['nombreProducto']; ?>" style="max-width: 150px; max-height: 150px;">
+                                    </figure>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <p>No hay imágenes disponibles.</p>
+                            <?php endif; ?>
+                        </div>    
+                    </div>
+                </div>
             </section>
             <div class="m-5 w-25"><a href="administrar.php" class="btn btn-secondary rounded-0 W-25">Volver</a></div>
+            <div class="m-5 w-25"><a href="AddProduct" class="btn btn-success rounded-0 W-25">Agregar producto</a></div>
         </div>
     </main>
 

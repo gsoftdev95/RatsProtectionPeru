@@ -618,7 +618,18 @@ function modificarProducto($bd, $tabla, $datos, $avatar)
     $precio = $datos['precio'];
     $descripcion = $datos['descripcion'];
     $tipoid = isset($datos['tipoid']) ? intval($datos['tipoid']) : null; // Convertir a entero
-    $tallas = json_encode(explode(',', $datos['tallas']));
+    
+    // 🔥 TALLAS BIEN MANEJADAS
+    if (isset($datos['tallas'])) {
+        if (is_array($datos['tallas'])) {
+            $tallas = json_encode($datos['tallas']);
+        } else {
+            $tallas = json_encode(explode(',', $datos['tallas']));
+        }
+    } else {
+        $tallas = json_encode([]);
+    }
+
     $especificaciones = json_encode(explode("\n", $datos['especificaciones']));
 
     // Se mantiene el formato JSON de imágenes

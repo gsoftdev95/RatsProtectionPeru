@@ -14,11 +14,15 @@ require_once('partials/conexionBD.php');
 
 $id = $_GET['id'];
 $productos = detalleProducto($bd, $id, 'productos');
+$tallasRegistradas = json_decode($productos['tallas'], true) ?? [];
 
+
+$exito = false;
 if ($_POST) {
+
+    // Imágenes actuales
     $imagenes_actuales = json_decode($productos['avatar'], true) ?? [];
 
-    // Si se suben nuevas imágenes, las procesamos; si no, mantenemos las actuales
     if (isset($_FILES['avatar']) && !empty($_FILES['avatar']['name'][0])) {
         $imagenes_nuevas = armarLaImagenProducto($_FILES);
         $avatar = json_encode($imagenes_nuevas);
@@ -26,13 +30,22 @@ if ($_POST) {
         $avatar = json_encode($imagenes_actuales);
     }
 
-    // Asegurar que tipoid se pase correctamente
-    $_POST['tipoid'] = isset($_POST['tipoid']) ? intval($_POST['tipoid']) : null;
+    // 👉 TALLAS
+    if (isset($_POST['tallas']) && count($_POST['tallas']) > 0) {
+        // El usuario seleccionó nuevas tallas
+        $_POST['tallas'] = $_POST['tallas'];
+    } else {
+        // No seleccionó nada → conservar las anteriores
+        $_POST['tallas'] = $tallasRegistradas;
+    }
+
+    // Normalizar tipoid
+    $_POST['tipoid'] = isset($_POST['tipoid']) ? (int)$_POST['tipoid'] : null;
 
     modificarProducto($bd, 'productos', $_POST, $avatar);
-    header('location:administrarProductos.php');
-    exit;
+    $exito = true;
 }
+
 
 $descripcion = isset($productos['descripcion']) ? htmlspecialchars($productos['descripcion']) : '';
 $tallas = isset($productos['tallas']) ? implode(',', json_decode($productos['tallas'], true) ?? []) : '';
@@ -63,7 +76,19 @@ $imagenes = json_decode($productos['avatar'], true) ?? [];
                 <h2 class="bg-primary-subtle text-primary-emphasis text-center py-5">Actualización de datos del producto</h2>            
             </section>
             <section class="col-6 offset-3">
-                <form action="" method="POST" enctype="multipart/form-data">
+                <?php if ($exito): ?>
+                    <div class="alert alert-success text-center">
+                        El producto fue modificado correctamente.  
+                        Serás redirigido en unos segundos…
+                    </div>
+
+                    <script>
+                        setTimeout(() => {
+                            window.location.href = "detalleProducto.php?id=<?= $id ?> ";
+                        }, 3000); // 3 segundos
+                    </script>
+                <?php endif; ?>
+                <form action="" method="POST" enctype="multipart/form-data" class="formCrud">
                     <div class="form-group">
                         <label for="id">ID</label>
                         <input type="text" class="form-control" name="id" value="<?= $productos['id']; ?>" readonly>
@@ -97,8 +122,44 @@ $imagenes = json_decode($productos['avatar'], true) ?? [];
                         <textarea class="form-control" name="descripcion" rows="3" required><?= $descripcion; ?></textarea>
                         
                         <label for="tallas">Tallas disponibles</label>
-                        <input type="text" class="form-control" name="tallas" value="<?= $tallas; ?>" placeholder="Ej: S,M,L,XL" required>
-                        
+                        <?php if (!empty($tallasRegistradas)): ?>
+                            <div class="alert alert-info">
+                                <strong>Tallas registradas actualmente:</strong><br>
+                                <?= implode(' , ', $tallasRegistradas); ?>
+                            </div>
+                        <?php endif; ?>
+                        <label class="mt-3 ms-3"><b>Seleccionar nuevas tallas (opcional)</b></label>
+
+                        <div class="form-group my-3 ms-3">
+
+                            <?php
+                            $listaTallas = [
+                                'S','S/M','M','M/L','L','L/XL','XL',
+                                '8','10','12','14','16',
+                                '28','30','32','34','36',
+                                'Extra oficio','Estandar regulable','Estandar'
+                            ];
+                            ?>
+
+                            <div class="d-flex flex-wrap">
+                            <?php foreach ($listaTallas as $talla): ?>
+                                <div class="me-3 mb-2">
+                                    <input 
+                                        type="checkbox" 
+                                        name="tallas[]" 
+                                        value="<?= $talla ?>"
+                                    >
+                                    <?= $talla ?>
+                                </div>
+                            <?php endforeach; ?>
+                            </div>
+
+                            <small class="text-muted">
+                                Si no seleccionas ninguna talla, se conservarán las actuales.
+                            </small>
+
+                        </div>
+
                         <label for="especificaciones">Especificaciones</label>
                         <textarea class="form-control" name="especificaciones" rows="3"><?= $especificaciones; ?></textarea>
                         

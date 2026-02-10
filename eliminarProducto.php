@@ -16,7 +16,7 @@
 
     if($_POST){
         eliminarProducto($bd,'productos',$_POST);
-        header('location:administrarProductos.php');
+        header('location:administrar');
     }
 
 
