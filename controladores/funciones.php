@@ -506,7 +506,9 @@ function guardarProducto($bd, $tabla, $datos, $imagenes)
         $nombreProducto = trim($datos['nombreProducto']);
         $categoriaProducto = trim($datos['categoriaProducto']); 
         $precio = trim($datos['precio']);
-        $tallas = is_array($datos['tallas']) ? json_encode($datos['tallas']) : trim($datos['tallas']);    
+        
+        // 👉 tallas llegan como STRING separado por comas
+        $tallas = json_encode(explode(',', $datos['tallas']));  
         $avatar = json_encode($imagenes);
         $descripcion = trim($datos['descripcion']);
         $tipoid = isset($datos['tipoid']) ? (int)$datos['tipoid'] : null; // Convertir a entero
@@ -527,6 +529,7 @@ function guardarProducto($bd, $tabla, $datos, $imagenes)
         $query->bindValue(':tipoid', $tipoid, PDO::PARAM_INT); // Asegurar que es entero
 
         $query->execute();
+        return $bd->lastInsertId();
     } catch (PDOException $e) {
         die("Error al guardar el producto: " . $e->getMessage());
     }

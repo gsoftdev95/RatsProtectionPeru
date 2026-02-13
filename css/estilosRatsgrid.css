@@ -1170,7 +1170,7 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
     padding: 0.8rem;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    text-align: center;
+    text-align: left;
     font-weight: bold;
     font-size: 1rem;
 }
@@ -1190,25 +1190,10 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
     background-color: rgb(247, 213, 231);
 }
 
-.bodyAdministrator{
-    height: 1200px;
-}
-.welcomeAdminText{
-    font-size:3rem;
-}
-.optionAdmin{
-    font-size:2rem;
-    padding: 0px 0px 0px 1rem;
-    width: 500px;
-    text-align: center;
-    margin: auto;
-}
-.optionAdmin a{
-    text-align: center;
-    margin: auto;
-}
-.optionAdmin img{
-    width: 3rem;
+
+.descripcionSector{
+    font-size: 0.8rem;
+    color: #898989;
 }
 .icon-cart:before {
     content: "\e93a";
@@ -1218,8 +1203,8 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
     display: flex;
 }
 .tableAdminProductCont{
-  max-height: 500px;
-  overflow-y: auto;    
+    max-height: 500px;
+    overflow-y: auto;    
 }
 .tableAdministracion{
     width: 100%;

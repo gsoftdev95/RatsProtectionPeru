@@ -62,10 +62,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!doctype html>
 <html lang="es">
-  <head>
-    <?php include_once('./partials/head.php')?>
-  </head>
-  <body>    
+<head>
+<?php include_once('./partials/head.php')?>
+</head>
+<body>    
     
     <header>
         <?php include_once('./partials/navBar.php')?>
@@ -111,7 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <section id="productos">
                 <h2>Gestión de Productos</h2>
-                <p>Aquí puedes registrar, editar o eliminar productos.</p>          
+                <p class="descripcionSector">Aquí puedes registrar, editar o eliminar productos.</p>          
 
                 <section>
                 Ver productos
@@ -172,7 +172,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <section id="clientes">
                 <h2>Clientes</h2>
-                <p>Lista de usuarios registrados y su actividad.</p>
+                <p class="descripcionSector">Lista de usuarios registrados y su actividad.</p>
 
                 <section>
                     Ver clientes
@@ -234,7 +234,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <section id="team">
                 <h2>Team Rats</h2>
-                <p>Lista de miembros del team.</p>
+                <p class="descripcionSector">Lista de miembros del team.</p>
 
                 <section>
                     Ver team
@@ -294,7 +294,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <section id="evento">
                 <h2>Eventos</h2>
-                <p>Lista de eventos auspiciados o de difusión.</p>
+                <p class="descripcionSector">Lista de eventos auspiciados o de difusión.</p>
 
                 <section>
                     Ver eventos
@@ -352,7 +352,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <section id="reclamos">
                 <h2>Reclamos</h2>
-                <p>Lista de reclamos realizados por los consumidores.</p>
+                <p class="descripcionSector">Lista de reclamos realizados por los consumidores.</p>
 
                 <section>
                     Ver reclamos
@@ -429,7 +429,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <section class="estadisticas">
                 <h2>Estadisticas</h2>
-                <p>estadisticas de la pagina</p>
+                <p class="descripcionSector">estadisticas de la pagina</p>
                 <!-- Google Tag Manager (noscript) -->
                 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NRFLP22S"
                 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>

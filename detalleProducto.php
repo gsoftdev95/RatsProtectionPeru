@@ -1,15 +1,16 @@
 <?php
-    require_once('controladores/funciones.php');
-    require_once('helpers/dd.php');
-    require_once('partials/conexionBD.php');
-    //controll de accesso por roles
-    require_once('controladores/controlAcceso.php');
-    
-    $id=$_GET['id'];
-    
-    $productos = detalleProducto($bd, $id, 'productos');
-    //dd($usuario);
+require_once('controladores/funciones.php');
+require_once('helpers/dd.php');
+require_once('partials/conexionBD.php');
+//controll de accesso por roles
+require_once('controladores/controlAcceso.php');
+
+$id=$_GET['id'];
+
+$productos = detalleProducto($bd, $id, 'productos');
+//dd($usuario);
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>

@@ -7,24 +7,36 @@ controlIngreso();
 $errores = [];
 $exito = false;
 if ($_POST) {
+
     $nombreProducto = $_POST['nombreProducto'];
     $categoriaProducto = $_POST['categoriaProducto'];
     $precio = $_POST['precio'];
-    $tallas = isset($_POST['tallas']) ? implode(",", $_POST['tallas']) : "";
     $descripcion = $_POST['descripcion'];
-    $tipoid = isset($_POST['tipoid']) ? (int)$_POST['tipoid'] : null; // Convertir a entero
+    $tipoid = isset($_POST['tipoid']) ? (int)$_POST['tipoid'] : null;
 
-    // Validación de tipoid: Solo puede ser 1, 2 o 3
+    // 🔥 convertir tallas a string
+    $_POST['tallas'] = isset($_POST['tallas']) ? implode(",", $_POST['tallas']) : "";
+
     if (!in_array($tipoid, [1, 2, 3])) {
-        $errores[] = "El ID de la categoría debe ser 1 (Protecciones), 2 (Ropa) o 3 (Accesorios).";
+        $errores[] = "El ID de la categoría debe ser 1, 2 o 3.";
+    }
+
+    if (!is_numeric($precio)) {
+        $errores[] = "El precio debe ser numérico.";
     }
 
     if (count($errores) === 0) {
-        $avatar = armarLaImagenProducto($_FILES);
-        guardarProducto($bd, 'productos', $_POST, $avatar);
-        $exito = true; 
+    $avatar = armarLaImagenProducto($_FILES);
+
+    // guardamos y obtenemos el ID
+    $id = guardarProducto($bd, 'productos', $_POST, $avatar);
+
+    // 🔥 activar éxito
+    $exito = true;
     }
+
 }
+
 ?>
 
 <!doctype html>
@@ -57,18 +69,20 @@ if ($_POST) {
                                         <?php endforeach; ?>
                                     </ul>
                                 <?php endif; ?>
+                                
                                 <?php if ($exito): ?>
                                     <div class="alert alert-success text-center">
-                                        El producto fue agregado correctamente.  
+                                        Producto creado correctamente.
                                         Serás redirigido en unos segundos…
                                     </div>
 
                                     <script>
                                         setTimeout(() => {
                                             window.location.href = "detalleProducto.php?id=<?= $id ?>";
-                                        }, 3000); // 3 segundos
+                                        }, 2000);
                                     </script>
                                 <?php endif; ?>
+
 
                                 <form action="" method="POST" enctype="multipart/form-data" class="formCrud">
                                     <select class="form-select my-3" name="categoriaProducto">

@@ -25,25 +25,37 @@
         <!-- Sidebar -->
         <?php include_once('./partials/asideAdmin.php')?>
 
-        <div class="container-fluid m-0 p-0">        
-            <section class="col-12 container-fluid m-0 p-0">
-                <h2 class="bg-primary-subtle text-primary-emphasis text-center py-5">Datos del usuario</h2>            
+        <div class="container-fluid">
+            <section class="row">
+                <h2 class="display-4 bg-primary-subtle text-primary-emphasis text-center py-5">Datos del cliente</h2>            
             </section>
-            <section class="row container-fluid m-0 p-0"  >            
-                <div><a href="administrar.php" class="btn btn-secondary rounded-0 m-2 w-5">Volver</a></div> 
-                <article class="col-4 offset-2 pt-4 w-50">
-                    <h4>ID: <?= $usuario['id'];?> </h4> 
-                    <br>           
-                    <h4>Nombre: <?= $usuario['nombre'];?></h4>    
-                    <br>        
-                    <h4>Apellido: <?= $usuario['apellidos'];?></h4>
-                    <br>            
-                    <h4>Email: <?= $usuario['correo'];?></h4>
-                    <br>
-                    <h4>Perfil: <?= $usuario['perfil'];?></h4>
-                </article>
-                <div><a href="administrar.php" class="btn btn-secondary rounded-0 m-2 w-5">Volver</a></div> 
+
+
+            <section class="containerInfo" >            
+                <div class="containerInfoInner">
+                    <h5 class=" mb-0 fw-bolder">ID:</h5>  
+                    <p><?= $usuario['id'];?> </p>
+                    <hr>
+                    
+                    <h5 class=" mb-0 fw-bolder">Nombre del cliente:</h5>
+                    <?= $usuario['nombre'];?>
+                    <hr>
+
+                    <h5 class=" mb-0 fw-bolder">Apellidos del cliente:</h5>
+                    <?= $usuario['apellidos'];?>
+                    <hr>
+
+                    <h5 class=" mb-0 fw-bolder">Categoria del producto:</h5> 
+                    <?= $usuario['correo'];?>
+                    <hr>
+
+                    <h5 class=" mb-0 fw-bolder">Tipo del producto:</h5> 
+                    <?= $usuario['perfil'];?>
+                    <hr>
+                </div>
             </section>
+            
+            <div><a href="administrar.php" class="btn btn-secondary rounded-0 m-2 w-5">Volver</a></div> 
         </div>
     </main>
 
